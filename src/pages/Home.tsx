@@ -9,7 +9,7 @@ import { seoConfigs } from '@/config/seo'
 
 const Home: React.FC = () => {
   return (
-    <div className="min-h-screen relative">
+    <div className="min-h-screen">
       <SEOHead config={seoConfigs.home} />
       <HeroSlider />
       
