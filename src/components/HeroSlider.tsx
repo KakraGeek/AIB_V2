@@ -140,7 +140,7 @@ const HeroSlider: React.FC<HeroSliderProps> = ({
   return (
     <div 
       className={cn(
-        "relative w-full h-screen overflow-hidden",
+        "relative w-full h-screen",
         className
       )}
       onMouseEnter={handlePause}

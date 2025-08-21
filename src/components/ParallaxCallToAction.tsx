@@ -18,7 +18,7 @@ const ParallaxCallToAction: React.FC<ParallaxCallToActionProps> = ({ children, i
   const backgroundImage = parallaxImages[imageIndex % parallaxImages.length]
 
   return (
-    <div className={`relative overflow-hidden ${className}`}>
+    <div className={`relative ${className}`}>
       {/* Fixed Background Image - Edge to Edge */}
       <div 
         className="parallax-bg absolute inset-0 bg-cover bg-center"

@@ -19,7 +19,7 @@ const ParallaxHeader: React.FC<ParallaxHeaderProps> = ({ title, subtitle, imageI
   const backgroundImage = parallaxImages[imageIndex % parallaxImages.length]
 
   return (
-    <div className="relative h-64 md:h-80 lg:h-96 overflow-hidden">
+    <div className="relative h-64 md:h-80 lg:h-96">
       {/* Fixed Background Image - Visible within container */}
       <div 
         className="parallax-bg absolute inset-0 bg-cover bg-center"
