@@ -66,6 +66,94 @@ const Home: React.FC = () => {
         </div>
       </section>
 
+      {/* Brand Parallax Section */}
+      <ScrollAnimation animation="fadeIn" delay={0.25}>
+        <section className="relative py-24 overflow-hidden">
+          {/* Fixed Background Image */}
+          <div 
+            className="absolute inset-0 bg-cover bg-center bg-fixed"
+            style={{
+              backgroundImage: 'url(/images/parallax/banner_parallax_03.webp)',
+              backgroundAttachment: 'fixed'
+            }}
+          />
+          
+          {/* Dark Overlay */}
+          <div className="absolute inset-0 bg-black bg-opacity-50" />
+          
+          {/* Content with Logo Overlay */}
+          <div className="container-custom relative z-10">
+            <div className="text-center">
+              {/* Brand Logo */}
+              <motion.div 
+                className="mb-8"
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.8, delay: 0.3 }}
+              >
+                <img 
+                  src="/images/logo.png" 
+                  alt="Agile Insurance Brokers Ltd" 
+                  className="w-32 h-32 md:w-40 md:h-40 mx-auto filter drop-shadow-lg"
+                />
+              </motion.div>
+              
+              {/* Brand Message */}
+              <motion.h2 
+                className="text-3xl md:text-4xl font-bold text-white mb-6"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.5 }}
+              >
+                Trusted Insurance Solutions
+              </motion.h2>
+              
+              <motion.p 
+                className="text-xl text-gray-200 mb-8 max-w-3xl mx-auto"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.7 }}
+              >
+                With over 5 years of experience serving Ghana, we've built our reputation on trust, 
+                reliability, and exceptional customer service. Your protection is our priority.
+              </motion.p>
+              
+              {/* Call to Action Buttons */}
+              <motion.div 
+                className="flex flex-col sm:flex-row gap-4 justify-center"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.9 }}
+              >
+                <motion.a
+                  href="/contact"
+                  className="bg-primary-600 hover:bg-primary-700 text-white font-semibold py-3 px-8 rounded-lg transition-colors duration-200 inline-flex items-center justify-center space-x-2"
+                  whileHover={{ scale: 1.05, y: -2 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                  </svg>
+                  <span>Get Started Today</span>
+                </motion.a>
+                
+                <motion.a
+                  href="/about"
+                  className="border-2 border-white text-white hover:bg-white hover:text-primary-600 font-semibold py-3 px-8 rounded-lg transition-colors duration-200 inline-flex items-center justify-center space-x-2"
+                  whileHover={{ scale: 1.05, y: -2 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                  <span>Learn More</span>
+                </motion.a>
+              </motion.div>
+            </div>
+          </div>
+        </section>
+      </ScrollAnimation>
+
       {/* Core Values Section */}
       <ScrollAnimation animation="fadeIn" delay={0.3}>
         <section className="py-20 bg-white">
