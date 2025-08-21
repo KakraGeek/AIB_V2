@@ -4,7 +4,6 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X } from 'lucide-react'
 import ProgressBar from './ProgressBar'
 import FloatingActionButton from './FloatingActionButton'
-import PerformanceMonitor from './PerformanceMonitor'
 
 const Layout: React.FC = React.memo(() => {
   const location = useLocation()
@@ -193,7 +192,7 @@ const Layout: React.FC = React.memo(() => {
       <div className="h-16"></div>
 
       <main className="flex-1 animation-safe">
-        <Outlet key={location.pathname} />
+        <Outlet />
       </main>
 
       <motion.footer 
@@ -253,7 +252,8 @@ const Layout: React.FC = React.memo(() => {
       </motion.footer>
 
       <FloatingActionButton />
-      <PerformanceMonitor />
+      {/* Temporarily disabled to fix infinite re-render loop */}
+      {/* <PerformanceMonitor /> */}
     </div>
   )
 })

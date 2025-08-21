@@ -34,7 +34,7 @@ const PerformanceMonitor: React.FC = () => {
         totalRenderTime: newTotalRenderTime
       }
     })
-  })
+  }, []) // Add empty dependency array to run only once
 
   // Toggle visibility with Ctrl+Shift+P
   useEffect(() => {

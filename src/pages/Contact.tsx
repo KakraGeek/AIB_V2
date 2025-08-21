@@ -369,7 +369,7 @@ const Contact: React.FC = () => {
                   <div>
                     <h3 className="text-lg font-semibold text-gray-900 mb-2">Business Hours</h3>
                     <p className="text-gray-700">Monday - Friday: 8:00 AM - 5:00 PM</p>
-                    <p className="text-gray-700">Saturday: 9:00 AM - 1:00 PM</p>
+                    <p className="text-gray-700">Saturday: Closed</p>
                     <p className="text-gray-600 text-sm">Sunday: Closed</p>
                   </div>
                 </motion.div>

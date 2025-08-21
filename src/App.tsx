@@ -1,5 +1,6 @@
 
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom'
+import { useEffect } from 'react'
 import Layout from '@/components/Layout'
 import Home from '@/pages/Home'
 import About from '@/pages/About'
@@ -10,9 +11,22 @@ import Clients from '@/pages/Clients'
 import Contact from '@/pages/Contact'
 import NotFound from '@/pages/NotFound'
 
+// Debug component to log route changes
+function RouteDebugger() {
+  const location = useLocation()
+  
+  useEffect(() => {
+    console.log('🌐 Route changed to:', location.pathname)
+    console.log('📍 Full location:', location)
+  }, [location])
+  
+  return null
+}
+
 function App() {
   return (
-    <Router>
+    <Router basename="/">
+      <RouteDebugger />
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />

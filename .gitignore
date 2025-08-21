@@ -24,3 +24,6 @@ dist-ssr
 *.sw?
 
 .vercel
+
+# Deployment credentials (NEVER commit this!)
+.env.deploy
