@@ -9,7 +9,7 @@ import { seoConfigs } from '@/config/seo'
 
 const About: React.FC = () => {
   return (
-         <div className="min-h-screen bg-gradient-to-br from-blue-300 via-blue-200 to-indigo-300">
+         <div className="min-h-screen bg-gradient-to-br from-blue-175 via-blue-150 to-indigo-175">
       <SEOHead config={seoConfigs.about} />
       <ParallaxHeader 
         title="About Us" 
@@ -50,7 +50,7 @@ const About: React.FC = () => {
 
         {/* Company Highlights */}
         <ScrollAnimation animation="fadeIn" delay={0.2}>
-          <div className="py-20 bg-gradient-to-r from-indigo-200 via-indigo-100 to-purple-200">
+          <div className="py-20 bg-gradient-to-r from-indigo-175 via-indigo-150 to-purple-175">
             <div className="container-custom">
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
                 {[
@@ -112,7 +112,7 @@ const About: React.FC = () => {
 
         {/* Vision & Mission */}
         <ScrollAnimation animation="fadeIn" delay={0.3}>
-          <div className="py-20 bg-gradient-to-r from-indigo-300 via-indigo-200 to-purple-300">
+          <div className="py-20 bg-gradient-to-r from-indigo-175 via-indigo-150 to-purple-175">
             <div className="container-custom">
               <InteractiveCard hoverEffect="glow" className="p-8 bg-gradient-to-br from-indigo-200 to-indigo-100 border-2 border-indigo-300">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -166,7 +166,7 @@ const About: React.FC = () => {
 
         {/* Company Values */}
         <ScrollAnimation animation="fadeIn" delay={0.4}>
-          <div className="py-20 bg-gradient-to-r from-blue-300 via-blue-200 to-indigo-300">
+          <div className="py-20 bg-gradient-to-r from-blue-175 via-blue-150 to-indigo-175">
             <div className="container-custom">
               <motion.div 
                 className="mt-16 text-center"

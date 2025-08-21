@@ -9,7 +9,7 @@ import { seoConfigs } from '@/config/seo'
 
 const Home: React.FC = () => {
   return (
-         <div className="min-h-screen bg-gradient-to-br from-blue-200 via-blue-100 to-indigo-100">
+         <div className="min-h-screen bg-gradient-to-br from-blue-175 via-blue-150 to-indigo-175">
       <SEOHead config={seoConfigs.home} />
       <HeroSlider />
       
@@ -35,36 +35,38 @@ const Home: React.FC = () => {
       </ScrollAnimation>
 
              {/* Vision & Mission Section */}
-       <section className="py-20 bg-gradient-to-br from-blue-200 via-blue-100 to-indigo-200">
-        <div className="container-custom">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-6xl mx-auto">
-            <ScrollAnimation animation="slideRight" delay={0.1}>
-              <div className="text-center">
-                <div className="w-20 h-20 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                  <svg className="w-10 h-10 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-                  </svg>
+      <ScrollAnimation animation="fadeIn" delay={0.2}>
+        <section className="py-20 bg-gradient-to-br from-blue-175 via-blue-150 to-indigo-175">
+          <div className="container-custom">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-6xl mx-auto">
+              <ScrollAnimation animation="slideRight" delay={0.1}>
+                <div className="text-center">
+                  <div className="w-20 h-20 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                    <svg className="w-10 h-10 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                    </svg>
+                  </div>
+                  <h3 className="text-2xl font-bold text-gray-900 mb-4">Our Vision</h3>
+                  <p className="text-lg text-gray-700">To be everywhere risk exists.</p>
                 </div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">Our Vision</h3>
-                <p className="text-lg text-gray-700">To be everywhere risk exists.</p>
-              </div>
-            </ScrollAnimation>
-            
-            <ScrollAnimation animation="slideLeft" delay={0.2}>
-              <div className="text-center">
-                <div className="w-20 h-20 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                  <svg className="w-10 h-10 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
+              </ScrollAnimation>
+              
+              <ScrollAnimation animation="slideLeft" delay={0.2}>
+                <div className="text-center">
+                  <div className="w-20 h-20 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                    <svg className="w-10 h-10 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                  </div>
+                  <h3 className="text-2xl font-bold text-gray-900 mb-4">Our Mission</h3>
+                  <p className="text-lg text-gray-700">To provide peace of mind to our customers through sound insurance and exceptional service.</p>
                 </div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">Our Mission</h3>
-                <p className="text-lg text-gray-700">To provide peace of mind to our customers through sound insurance and exceptional service.</p>
-              </div>
-            </ScrollAnimation>
+              </ScrollAnimation>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </ScrollAnimation>
 
       {/* Brand Parallax Section */}
       <ScrollAnimation animation="fadeIn" delay={0.25}>
@@ -156,7 +158,7 @@ const Home: React.FC = () => {
 
               {/* Company Highlights */}
          <ScrollAnimation animation="fadeIn" delay={0.2}>
-           <div className="py-20 bg-gradient-to-r from-indigo-200 via-indigo-100 to-purple-200">
+           <section className="py-20 bg-gradient-to-br from-indigo-175 via-indigo-150 to-purple-175">
              <div className="container-custom">
                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
                  {[
@@ -198,7 +200,7 @@ const Home: React.FC = () => {
                      transition={{ duration: 0.5, delay: 1.0 + index * 0.1 }}
                      whileHover={{ scale: 1.05, y: -5 }}
                    >
-                     <InteractiveCard hoverEffect="lift" className="p-8 text-center bg-gradient-to-br from-blue-200 to-blue-100 border-2 border-blue-300">
+                     <InteractiveCard hoverEffect="lift" className="p-8 text-center bg-gradient-to-br from-blue-175 to-blue-150 border-2 border-blue-300">
                        <motion.div 
                          className={`w-16 h-16 ${highlight.color} rounded-full flex items-center justify-center mx-auto mb-4 text-2xl`}
                          whileHover={{ rotate: 5, scale: 1.1 }}
@@ -213,7 +215,7 @@ const Home: React.FC = () => {
                  ))}
                </div>
              </div>
-           </div>
+           </section>
          </ScrollAnimation>
 
              {/* Core Values Section */}
@@ -263,7 +265,7 @@ const Home: React.FC = () => {
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
             <ScrollAnimation animation="slideUp" delay={0.5}>
-              <InteractiveCard hoverEffect="glow" className="p-8 text-center bg-gradient-to-br from-blue-200 to-blue-100 border-2 border-blue-300">
+              <InteractiveCard hoverEffect="glow" className="p-8 text-center bg-gradient-to-br from-indigo-175 to-indigo-150 border-2 border-indigo-300">
                 <div className="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-6">
                   <svg className="w-8 h-8 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -277,7 +279,7 @@ const Home: React.FC = () => {
             </ScrollAnimation>
             
             <ScrollAnimation animation="slideUp" delay={0.6}>
-              <InteractiveCard hoverEffect="glow" className="p-8 text-center bg-gradient-to-br from-indigo-200 to-indigo-100 border-2 border-indigo-300">
+              <InteractiveCard hoverEffect="glow" className="p-8 text-center bg-gradient-to-br from-indigo-175 to-indigo-150 border-2 border-indigo-300">
                 <div className="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-6">
                   <svg className="w-8 h-8 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
@@ -291,7 +293,7 @@ const Home: React.FC = () => {
             </ScrollAnimation>
             
             <ScrollAnimation animation="slideUp" delay={0.7}>
-              <InteractiveCard hoverEffect="glow" className="p-8 text-center bg-gradient-to-br from-purple-200 to-purple-100 border-2 border-purple-300">
+              <InteractiveCard hoverEffect="glow" className="p-8 text-center bg-gradient-to-br from-purple-175 to-purple-150 border-2 border-purple-300">
                 <div className="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-6">
                   <svg className="w-8 h-8 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />

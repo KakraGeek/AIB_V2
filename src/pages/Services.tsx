@@ -9,7 +9,7 @@ import { seoConfigs } from '@/config/seo'
 
 const Services: React.FC = () => {
   return (
-         <div className="min-h-screen bg-gradient-to-br from-primary-300 via-primary-200 to-secondary-300">
+         <div className="min-h-screen bg-gradient-to-br from-primary-175 via-primary-150 to-secondary-175">
       <SEOHead config={seoConfigs.services} />
       <ParallaxHeader 
         title="Our Services" 
@@ -78,7 +78,7 @@ const Services: React.FC = () => {
                 transition={{ duration: 0.5, delay: 0.6 + index * 0.1 }}
                 whileHover={{ scale: 1.02, y: -5 }}
               >
-                <InteractiveCard hoverEffect="lift" className="p-8 h-full bg-gradient-to-br from-primary-300 to-white border border-primary-200">
+                <InteractiveCard hoverEffect="lift" className="p-8 h-full bg-gradient-to-br from-primary-175 to-white border border-primary-200">
                   <motion.div 
                     className={`w-16 h-16 ${service.color} rounded-full flex items-center justify-center mx-auto mb-6 text-2xl`}
                     whileHover={{ rotate: 5, scale: 1.1 }}
@@ -114,7 +114,7 @@ const Services: React.FC = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 1.5 }}
           >
-            <InteractiveCard hoverEffect="glow" className="p-8 max-w-4xl mx-auto bg-gradient-to-br from-primary-300 to-white border border-primary-200">
+            <InteractiveCard hoverEffect="glow" className="p-8 max-w-4xl mx-auto bg-gradient-to-br from-primary-175 to-white border border-primary-200">
               <motion.div 
                 className="text-6xl mb-6"
                 initial={{ scale: 0.8, rotate: -10 }}
@@ -181,7 +181,7 @@ const Services: React.FC = () => {
                   transition={{ duration: 0.5, delay: 2.7 + index * 0.1 }}
                   whileHover={{ scale: 1.05 }}
                 >
-                  <InteractiveCard hoverEffect="scale" className="p-6 text-center bg-gradient-to-br from-secondary-50 to-white border border-secondary-200">
+                  <InteractiveCard hoverEffect="scale" className="p-6 text-center bg-gradient-to-br from-secondary-175 to-white border border-secondary-200">
                     <motion.div 
                       className="text-4xl mb-4"
                       whileHover={{ rotate: 5, scale: 1.1 }}
