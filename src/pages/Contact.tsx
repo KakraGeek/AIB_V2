@@ -217,7 +217,7 @@ const Contact: React.FC = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-50 relative">
       <SEOHead config={seoConfigs.contact} />
       <ParallaxHeader 
         title="Contact Us" 

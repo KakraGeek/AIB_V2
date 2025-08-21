@@ -35,12 +35,12 @@ const Layout: React.FC = () => {
     <div className="min-h-screen flex flex-col">
       <ProgressBar />
       
-      <motion.header 
-        className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
-          isScrolled 
-            ? 'bg-white/95 backdrop-blur-md shadow-lg' 
-            : 'bg-white'
-        }`}
+             <motion.header 
+         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+           isScrolled 
+             ? 'bg-white/95 backdrop-blur-md shadow-lg' 
+             : 'bg-white'
+         }`}
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.6 }}
@@ -99,7 +99,7 @@ const Layout: React.FC = () => {
             {/* Mobile menu button */}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="md:hidden p-3 rounded-md text-gray-700 hover:text-primary-600 hover:bg-gray-50 transition-colors"
+              className="md:hidden p-3 mr-2 rounded-md text-gray-700 hover:text-primary-600 hover:bg-gray-50 transition-colors"
             >
               {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
@@ -115,13 +115,13 @@ const Layout: React.FC = () => {
               exit={{ opacity: 0, height: 0 }}
               className="md:hidden bg-white border-t border-gray-200"
             >
-              <div className="container-custom py-6 space-y-3">
+              <div className="container-custom py-6 space-y-3 px-4 sm:px-6">
                 {navigationItems.map((item) => (
                   <Link
                     key={item.name}
                     to={item.path}
                     onClick={() => setIsMobileMenuOpen(false)}
-                    className={`block px-4 py-3 rounded-md text-base font-medium transition-colors ${
+                    className={`block px-6 py-4 rounded-md text-base font-medium transition-colors ${
                       isActive(item.path)
                         ? 'text-primary-600 bg-primary-50'
                         : 'text-gray-700 hover:text-primary-600 hover:bg-gray-50'

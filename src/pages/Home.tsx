@@ -9,7 +9,7 @@ import { seoConfigs } from '@/config/seo'
 
 const Home: React.FC = () => {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen relative">
       <SEOHead config={seoConfigs.home} />
       <HeroSlider />
       
@@ -68,7 +68,7 @@ const Home: React.FC = () => {
 
       {/* Brand Parallax Section */}
       <ScrollAnimation animation="fadeIn" delay={0.25}>
-        <section className="relative py-24 overflow-hidden">
+        <section className="relative py-24">
           {/* Fixed Background Image */}
           <div 
             className="absolute inset-0 bg-cover bg-center bg-fixed"
