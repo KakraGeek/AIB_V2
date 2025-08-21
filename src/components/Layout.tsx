@@ -99,7 +99,7 @@ const Layout: React.FC = () => {
             {/* Mobile menu button */}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="md:hidden p-2 rounded-md text-gray-700 hover:text-primary-600 hover:bg-gray-50"
+              className="md:hidden p-3 rounded-md text-gray-700 hover:text-primary-600 hover:bg-gray-50 transition-colors"
             >
               {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
@@ -115,13 +115,13 @@ const Layout: React.FC = () => {
               exit={{ opacity: 0, height: 0 }}
               className="md:hidden bg-white border-t border-gray-200"
             >
-              <div className="container-custom py-4 space-y-2">
+              <div className="container-custom py-6 space-y-3">
                 {navigationItems.map((item) => (
                   <Link
                     key={item.name}
                     to={item.path}
                     onClick={() => setIsMobileMenuOpen(false)}
-                    className={`block px-3 py-2 rounded-md text-base font-medium ${
+                    className={`block px-4 py-3 rounded-md text-base font-medium transition-colors ${
                       isActive(item.path)
                         ? 'text-primary-600 bg-primary-50'
                         : 'text-gray-700 hover:text-primary-600 hover:bg-gray-50'
@@ -134,7 +134,7 @@ const Layout: React.FC = () => {
                   <Link
                     to="/contact"
                     onClick={() => setIsMobileMenuOpen(false)}
-                    className="block w-full bg-primary-600 hover:bg-primary-700 text-white px-4 py-2 rounded-md text-base font-medium text-center"
+                    className="block w-full bg-primary-600 hover:bg-primary-700 text-white px-4 py-3 rounded-md text-base font-medium text-center transition-colors"
                   >
                     Get Quote
                   </Link>
