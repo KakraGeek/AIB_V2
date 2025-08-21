@@ -99,7 +99,7 @@ const Layout: React.FC = () => {
             {/* Mobile menu button */}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="md:hidden p-3 rounded-md text-gray-700 hover:text-primary-600 hover:bg-gray-50 transition-colors"
+              className="md:hidden p-3 ml-2 rounded-md text-gray-700 hover:text-primary-600 hover:bg-gray-50 transition-colors"
             >
               {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
