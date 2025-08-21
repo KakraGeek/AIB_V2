@@ -144,7 +144,11 @@ const HeroSlider: React.FC<HeroSliderProps> = React.memo(({
   return (
     <div 
       className={cn(
-        "relative w-full h-screen hero-slider",
+        "relative w-full hero-slider",
+        // Responsive height: full screen on desktop, appropriate height on mobile
+        "h-screen md:h-screen",
+        // Mobile-specific height adjustments
+        "min-h-[60vh] sm:min-h-[70vh] md:min-h-screen",
         className
       )}
       onMouseEnter={handlePause}
@@ -172,9 +176,9 @@ const HeroSlider: React.FC<HeroSliderProps> = React.memo(({
           // Add will-change to optimize GPU rendering
           style={{ willChange: 'transform, opacity' }}
         >
-          {/* Background Image */}
+          {/* Background Image - Now responsive for mobile */}
           <div 
-            className="absolute inset-0 bg-cover bg-center bg-no-repeat image-optimized"
+            className="absolute inset-0 image-optimized"
             style={{
               backgroundImage: `url(${currentSlideData.image})`
             }}
@@ -196,7 +200,7 @@ const HeroSlider: React.FC<HeroSliderProps> = React.memo(({
                 variants={prefersReducedMotion ? {} : contentVariants}
                 initial="hidden"
                 animate="visible"
-                className="text-5xl md:text-6xl font-bold mb-6 text-optimized"
+                className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6 text-optimized"
                 aria-live="polite"
                 // Add will-change to optimize GPU rendering
                 style={{ willChange: 'transform, opacity' }}
@@ -209,7 +213,7 @@ const HeroSlider: React.FC<HeroSliderProps> = React.memo(({
                 variants={prefersReducedMotion ? {} : contentVariants}
                 initial="hidden"
                 animate="visible"
-                className="text-xl md:text-2xl mb-8 text-gray-200 text-optimized"
+                className="text-lg sm:text-xl md:text-2xl mb-6 md:mb-8 text-gray-200 text-optimized px-2"
                 style={{ willChange: 'transform, opacity' }}
               >
                 {currentSlideData.subtitle}
@@ -224,7 +228,7 @@ const HeroSlider: React.FC<HeroSliderProps> = React.memo(({
               >
                 <Link
                   to={currentSlideData.ctaHref}
-                  className="inline-block bg-primary-600 hover:bg-primary-700 text-white font-semibold py-4 px-8 rounded-lg text-lg transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-primary-400 focus:ring-offset-2 button-optimized hover-optimized touch-optimized"
+                  className="inline-block bg-primary-600 hover:bg-primary-700 text-white font-semibold py-3 px-6 md:py-4 md:px-8 rounded-lg text-base md:text-lg transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-primary-400 focus:ring-offset-2 button-optimized hover-optimized touch-optimized"
                 >
                   {currentSlideData.ctaLabel}
                 </Link>
@@ -234,35 +238,35 @@ const HeroSlider: React.FC<HeroSliderProps> = React.memo(({
         </motion.div>
       </AnimatePresence>
 
-      {/* Navigation Controls */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20">
-        <div className="flex items-center space-x-4">
+      {/* Navigation Controls - Responsive positioning */}
+      <div className="absolute bottom-4 md:bottom-8 left-1/2 transform -translate-x-1/2 z-20">
+        <div className="flex items-center space-x-2 md:space-x-4">
           {/* Play/Pause Button */}
           <button
             onClick={() => setIsPlaying(!isPlaying)}
-            className="p-3 bg-white/20 hover:bg-white/30 rounded-full text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-white/50 button-optimized touch-optimized"
+            className="p-2 md:p-3 bg-white/20 hover:bg-white/30 rounded-full text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-white/50 button-optimized touch-optimized"
             aria-label={isPlaying ? "Pause slideshow" : "Play slideshow"}
           >
-            {isPlaying ? <Pause size={20} /> : <Play size={20} />}
+            {isPlaying ? <Pause size={16} className="md:w-5 md:h-5" /> : <Play size={16} className="md:w-5 md:h-5" />}
           </button>
 
           {/* Previous Button */}
           <button
             onClick={goToPrevious}
-            className="p-3 bg-white/20 hover:bg-white/30 rounded-full text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-white/50 button-optimized touch-optimized"
+            className="p-2 md:p-3 bg-white/20 hover:bg-white/30 rounded-full text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-white/50 button-optimized touch-optimized"
             aria-label="Previous slide"
           >
-            <ChevronLeft size={20} />
+            <ChevronLeft size={16} className="md:w-5 md:h-5" />
           </button>
 
           {/* Dots */}
-          <div className="flex space-x-2">
+          <div className="flex space-x-1 md:space-x-2">
             {heroSlides.map((_, index) => (
               <button
                 key={index}
                 onClick={() => goToSlide(index)}
                 className={cn(
-                  "w-3 h-3 rounded-full transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-white/50 button-optimized touch-optimized",
+                  "w-2 h-2 md:w-3 md:h-3 rounded-full transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-white/50 button-optimized touch-optimized",
                   index === currentSlide 
                     ? "bg-white scale-125" 
                     : "bg-white/50 hover:bg-white/75"
@@ -276,17 +280,17 @@ const HeroSlider: React.FC<HeroSliderProps> = React.memo(({
           {/* Next Button */}
           <button
             onClick={goToNext}
-            className="p-3 bg-white/20 hover:bg-white/30 rounded-full text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-white/50 button-optimized touch-optimized"
+            className="p-2 md:p-3 bg-white/20 hover:bg-white/30 rounded-full text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-white/50 button-optimized touch-optimized"
             aria-label="Next slide"
           >
-            <ChevronRight size={20} />
+            <ChevronRight size={16} className="md:w-5 md:h-5" />
           </button>
         </div>
       </div>
 
-      {/* Slide Counter */}
-      <div className="absolute top-8 right-8 z-20">
-        <div className="bg-black/50 text-white px-4 py-2 rounded-lg text-sm">
+      {/* Slide Counter - Responsive positioning */}
+      <div className="absolute top-4 md:top-8 right-4 md:right-8 z-20">
+        <div className="bg-black/50 text-white px-3 py-1 md:px-4 md:py-2 rounded-lg text-xs md:text-sm">
           {currentSlide + 1} / {heroSlides.length}
         </div>
       </div>

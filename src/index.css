@@ -87,6 +87,22 @@ header {
   .hero-slider .motion-div {
     will-change: auto;
   }
+  
+  /* Mobile: Show full images without cropping */
+  .hero-slider .image-optimized {
+    background-size: contain !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+  }
+}
+
+/* Desktop: Use cover for better aesthetics */
+@media (min-width: 769px) {
+  .hero-slider .image-optimized {
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+  }
 }
 
 /* Smooth transitions for all interactive elements */
