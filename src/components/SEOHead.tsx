@@ -6,9 +6,20 @@ interface SEOHeadProps {
 }
 
 const SEOHead: React.FC<SEOHeadProps> = ({ config }) => {
-  useEffect(() => {
-    // Update document title
+  // Set title immediately on component mount
+  if (typeof document !== 'undefined') {
     document.title = config.title
+  }
+  
+  useEffect(() => {
+    // Update document title immediately
+    document.title = config.title
+    
+    // Force title update for WhatsApp preview
+    const titleElement = document.querySelector('title')
+    if (titleElement) {
+      titleElement.textContent = config.title
+    }
     
     // Update or create meta tags
     const updateMetaTag = (name: string, content: string, property?: string) => {
@@ -56,7 +67,7 @@ const SEOHead: React.FC<SEOHeadProps> = ({ config }) => {
     updateMetaTag('og:title', config.title, 'property')
     updateMetaTag('og:description', config.description, 'property')
     updateMetaTag('og:url', config.canonicalUrl, 'property')
-    updateMetaTag('og:image', `https://www.agilebrokersgh.com${config.ogImage}`, 'property')
+    updateMetaTag('og:image', `${config.canonicalUrl}${config.ogImage}`, 'property')
     updateMetaTag('og:image:width', '1200', 'property')
     updateMetaTag('og:image:height', '630', 'property')
     updateMetaTag('og:site_name', 'Agile Insurance Brokers Ltd', 'property')
@@ -67,7 +78,11 @@ const SEOHead: React.FC<SEOHeadProps> = ({ config }) => {
     updateMetaTag('twitter:card', config.twitterCard)
     updateMetaTag('twitter:title', config.title)
     updateMetaTag('twitter:description', config.description)
-    updateMetaTag('twitter:image', `https://www.agilebrokersgh.com${config.ogImage}`)
+    updateMetaTag('twitter:image', `${config.canonicalUrl}${config.ogImage}`)
+    
+    // WhatsApp-specific meta tags
+    updateMetaTag('og:image:secure_url', `${config.canonicalUrl}${config.ogImage}`, 'property')
+    updateMetaTag('og:image:type', 'image/png', 'property')
     
     // Geographic Meta Tags
     updateMetaTag('geo.region', 'GH')
