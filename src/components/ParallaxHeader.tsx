@@ -9,11 +9,12 @@ interface ParallaxHeaderProps {
 
 const ParallaxHeader: React.FC<ParallaxHeaderProps> = ({ title, subtitle, imageIndex }) => {
   const parallaxImages = [
-    '/images/parallax/banner_parallax_01.webp',
-    '/images/parallax/banner_parallax_02.webp',
-    '/images/parallax/banner_parallax_03.webp',
-    '/images/parallax/banner_parallax_05.webp',
-    '/images/parallax/banner_parallax_07.webp'
+    '/images/parallax/About-Us.webp',
+    '/images/parallax/Our-Services.webp',
+    '/images/parallax/Our-Products.webp',
+    '/images/parallax/Our-Team.webp',
+    '/images/parallax/Partners-Clients.webp',
+    '/images/parallax/Contact-Us.webp'
   ]
 
   const backgroundImage = parallaxImages[imageIndex % parallaxImages.length]

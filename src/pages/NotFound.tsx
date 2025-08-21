@@ -7,7 +7,7 @@ import { seoConfigs } from '@/config/seo'
 
 const NotFound: React.FC = () => {
   return (
-    <div className="min-h-screen bg-gray-50 flex items-center justify-center px-4">
+         <div className="min-h-screen bg-gradient-to-br from-primary-50 via-white to-secondary-50 flex items-center justify-center px-4">
       <SEOHead config={seoConfigs.notFound} />
       <div className="text-center max-w-2xl mx-auto">
         <motion.div
@@ -87,8 +87,8 @@ const NotFound: React.FC = () => {
           </motion.div>
         </motion.div>
 
-        <motion.div 
-          className="bg-white rounded-lg shadow-md p-8 max-w-lg mx-auto"
+                 <motion.div 
+           className="bg-gradient-to-br from-primary-50 to-white rounded-lg shadow-md p-8 max-w-lg mx-auto border border-primary-200"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 1.2 }}
@@ -128,7 +128,7 @@ const NotFound: React.FC = () => {
               >
                 <Link
                   to={link.href}
-                  className="block p-4 bg-gray-50 hover:bg-primary-50 rounded-lg transition-colors duration-200 text-center group"
+                  className="block p-4 bg-gradient-to-br from-primary-50 to-white hover:from-primary-100 hover:to-white rounded-lg transition-all duration-200 text-center group border border-primary-200"
                 >
                   <motion.div 
                     className="text-2xl mb-2"

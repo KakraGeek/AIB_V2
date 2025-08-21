@@ -9,7 +9,7 @@ import { seoConfigs } from '@/config/seo'
 
 const Clients: React.FC = () => {
   return (
-    <div className="min-h-screen bg-gray-50">
+         <div className="min-h-screen bg-gradient-to-br from-primary-50 via-white to-secondary-50">
       <SEOHead config={seoConfigs.clients} />
       <ParallaxHeader 
         title="Our Partners & Clients" 
@@ -43,14 +43,14 @@ const Clients: React.FC = () => {
             >
               Our Partners
             </motion.h2>
-            <InteractiveCard hoverEffect="lift" className="p-8">
+            <InteractiveCard hoverEffect="lift" className="p-8 bg-gradient-to-br from-primary-50 to-white border border-primary-200">
               <motion.p 
                 className="text-lg text-gray-700 mb-8 text-center"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.8 }}
               >
-                <span className="text-primary-600">Agile</span> <span className="text-secondary-700">Insurance</span> <span className="text-secondary-900">Brokers</span> partners with all registered insurance companies in Ghana to offer the broadest and most competitive insurance solutions.
+                <span className="text-primary-600">AGILE</span> <span className="text-secondary-700">INSURANCE</span> <span className="text-secondary-900">BROKERS</span> partners with all registered insurance companies in Ghana to offer the broadest and most competitive insurance solutions.
               </motion.p>
               <motion.p 
                 className="text-lg text-gray-700 mb-8 text-center"
@@ -86,7 +86,7 @@ const Clients: React.FC = () => {
                 ].map((partner, index) => (
                   <motion.div 
                     key={partner.name}
-                    className="text-center p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition-all duration-200"
+                    className="text-center p-6 bg-gradient-to-br from-secondary-50 to-white rounded-lg shadow-md hover:shadow-lg transition-all duration-200 border border-secondary-200"
                     initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: 1.2 + index * 0.1 }}
@@ -132,7 +132,7 @@ const Clients: React.FC = () => {
             >
               Some Major Clients
             </motion.h2>
-            <InteractiveCard hoverEffect="glow" className="p-8">
+            <InteractiveCard hoverEffect="glow" className="p-8 bg-gradient-to-br from-secondary-50 to-white border border-secondary-200">
               <motion.p 
                 className="text-lg text-gray-700 mb-8 text-center"
                 initial={{ opacity: 0, y: 20 }}
@@ -191,7 +191,7 @@ const Clients: React.FC = () => {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: 1.0 + index * 0.1 }}
                     whileHover={{ scale: 1.02, y: -5 }}
-                    className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-all duration-200"
+                    className="bg-gradient-to-br from-primary-50 to-white p-6 rounded-lg shadow-md hover:shadow-lg transition-all duration-200 border border-primary-200"
                   >
                     <motion.h3 
                       className="text-xl font-semibold text-gray-900 mb-4 flex items-center"
@@ -240,7 +240,7 @@ const Clients: React.FC = () => {
       
       {/* Why Leading Organizations Choose Us */}
       <ScrollAnimation animation="fadeIn" delay={0.4}>
-        <ParallaxCallToAction imageIndex={0}>
+        <ParallaxCallToAction imageIndex={4}>
           <div className="container-custom text-center">
             <motion.h3 
               className="text-2xl font-bold text-white mb-6"

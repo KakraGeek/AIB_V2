@@ -217,12 +217,12 @@ const Contact: React.FC = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
+         <div className="min-h-screen bg-gradient-to-br from-primary-50 via-white to-secondary-50">
       <SEOHead config={seoConfigs.contact} />
       <ParallaxHeader 
         title="Contact Us" 
         subtitle="Get in touch with our team for personalized insurance solutions"
-        imageIndex={0}
+        imageIndex={5}
       />
       <div className="container-custom py-20">
         <ScrollAnimation animation="fadeIn" delay={0.1}>
@@ -243,7 +243,7 @@ const Contact: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
           {/* Contact Information */}
           <ScrollAnimation animation="slideRight" delay={0.2}>
-            <InteractiveCard hoverEffect="lift" className="p-8">
+            <InteractiveCard hoverEffect="lift" className="p-8 bg-gradient-to-br from-primary-50 to-white border border-primary-200">
               <motion.h2 
                 className="text-2xl font-bold text-gray-900 mb-6"
                 initial={{ opacity: 0, x: -20 }}
@@ -379,7 +379,7 @@ const Contact: React.FC = () => {
 
           {/* Contact Form */}
           <ScrollAnimation animation="slideLeft" delay={0.3}>
-            <InteractiveCard hoverEffect="glow" className="p-8">
+            <InteractiveCard hoverEffect="glow" className="p-8 bg-gradient-to-br from-secondary-50 to-white border border-secondary-200">
               <motion.h2 
                 className="text-2xl font-bold text-gray-900 mb-6"
                 initial={{ opacity: 0, x: 20 }}
@@ -695,17 +695,17 @@ const Contact: React.FC = () => {
               transition={{ duration: 0.6, delay: 1.0 }}
               whileHover={{ scale: 1.01 }}
             >
-              <InteractiveCard hoverEffect="glow" className="p-4">
-                <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3975.268328435708!2d-0.15675388468037214!3d5.714139315914483!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xfdf9d657dec04e9%3A0xaea9967536950837!2sRomick%20Plaza!5e0!3m2!1sen!2sgh!4v1703179200000!5m2!1sen!2sgh"
-                  width="100%"
-                  height="450"
-                  style={{ border: 0, borderRadius: '8px' }}
-                  allowFullScreen={true}
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                  title="Agile Insurance Brokers Office Location"
-                />
+              <InteractiveCard hoverEffect="glow" className="p-4 bg-gradient-to-br from-primary-50 to-white border border-primary-200">
+                                 <iframe
+                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3975.268328435708!2d-0.15675388468037214!3d5.714139315914483!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xfdf9d657dec04e9%3A0xaea9967536950837!2sRomick%20Plaza!5e0!3m2!1sen!2sgh!4v1703179200000!5m2!1sen!2sgh"
+                   width="100%"
+                   height="450"
+                   style={{ border: 0, borderRadius: '8px' }}
+                   allowFullScreen={true}
+                   loading="lazy"
+                   referrerPolicy="no-referrer-when-downgrade"
+                   title="AGILE INSURANCE BROKERS OFFICE LOCATION"
+                 />
               </InteractiveCard>
             </motion.div>
           </div>
@@ -715,7 +715,7 @@ const Contact: React.FC = () => {
       
       {/* Call to Action Section */}
       <ScrollAnimation animation="fadeIn" delay={0.4}>
-        <ParallaxCallToAction imageIndex={1}>
+        <ParallaxCallToAction imageIndex={5}>
           <div className="container-custom text-center">
             <motion.h3 
               className="text-2xl font-bold text-white mb-4"
@@ -723,7 +723,7 @@ const Contact: React.FC = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.7 }}
             >
-              Why Choose Agile Insurance Brokers?
+                             Why Choose AGILE INSURANCE BROKERS?
             </motion.h3>
             <motion.p 
               className="text-lg text-gray-200 mb-4"

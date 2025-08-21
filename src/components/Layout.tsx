@@ -91,19 +91,19 @@ const Layout: React.FC = React.memo(() => {
                 // Add will-change to optimize GPU rendering
                 style={{ willChange: 'transform' }}
               >
-                <img 
-                  src="/images/logo.png" 
-                  alt="Agile Insurance Brokers Logo" 
-                  className="h-10 w-auto object-contain image-optimized"
-                />
+                                 <img 
+                   src="/images/logo.png" 
+                   alt="AGILE INSURANCE BROKERS LOGO" 
+                   className="h-10 w-auto object-contain image-optimized"
+                 />
               </motion.div>
-              <div className="flex flex-col brand-name">
-                <div className="flex items-baseline space-x-1">
-                  <span className="text-xl font-bold text-primary-600">Agile</span>
-                  <span className="text-secondary-700">Insurance</span>
-                </div>
-                <span className="text-sm font-medium text-secondary-900">Brokers Ltd</span>
-              </div>
+                             <div className="flex flex-col brand-name">
+                 <div className="flex items-baseline space-x-1">
+                   <span className="text-xl font-bold text-primary-600">AGILE</span>
+                   <span className="text-secondary-700">INSURANCE</span>
+                 </div>
+                 <span className="text-sm font-medium text-secondary-900">BROKERS LTD</span>
+               </div>
             </Link>
 
             {/* Desktop Navigation - RIGHT SIDE */}
@@ -207,7 +207,7 @@ const Layout: React.FC = React.memo(() => {
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             {/* Company Info */}
             <div className="col-span-1 md:col-span-2">
-              <h3 className="text-xl font-bold mb-4"><span className="text-primary-600">Agile</span> <span className="text-secondary-700">Insurance</span> <span className="text-secondary-900">Brokers Ltd</span></h3>
+                             <h3 className="text-xl font-bold mb-4 text-white uppercase">AGILE INSURANCE BROKERS LTD</h3>
               <p className="text-gray-300 mb-4">
                 Providing peace of mind through sound insurance and exceptional service since 2019.
               </p>
@@ -244,9 +244,9 @@ const Layout: React.FC = React.memo(() => {
           </div>
 
           <div className="border-t border-gray-700 mt-8 pt-8 text-center">
-            <p className="text-gray-400 text-sm">
-              © 2025 Agile Insurance Brokers Ltd. All rights reserved. | Powered by The Geek Toolbox.
-            </p>
+                         <p className="text-gray-400 text-sm">
+               © 2025 AGILE INSURANCE BROKERS LTD. All rights reserved. | Powered by The Geek Toolbox.
+             </p>
           </div>
         </div>
       </motion.footer>

@@ -9,12 +9,12 @@ import { seoConfigs } from '@/config/seo'
 
 const Products: React.FC = () => {
   return (
-    <div className="min-h-screen bg-gray-50">
+         <div className="min-h-screen bg-gradient-to-br from-primary-50 via-white to-secondary-50">
       <SEOHead config={seoConfigs.products} />
       <ParallaxHeader 
         title="Our Products" 
-        subtitle="Comprehensive insurance solutions for every need"
-        imageIndex={1}
+        subtitle="Comprehensive insurance solutions tailored to your needs"
+        imageIndex={2}
       />
       <div className="container-custom py-20">
         <ScrollAnimation animation="fadeIn" delay={0.1}>
@@ -107,7 +107,7 @@ const Products: React.FC = () => {
                 transition={{ duration: 0.5, delay: 0.6 + index * 0.1 }}
                 whileHover={{ scale: 1.02, y: -5 }}
               >
-                <InteractiveCard hoverEffect="lift" className="p-8 h-full">
+                <InteractiveCard hoverEffect="lift" className="p-8 h-full bg-gradient-to-br from-primary-50 to-white border border-primary-200">
                   <motion.div 
                     className="w-full h-56 mb-6 overflow-hidden rounded-lg"
                     whileHover={{ scale: 1.05 }}
@@ -170,7 +170,7 @@ const Products: React.FC = () => {
                   transition={{ duration: 0.5, delay: 2.4 + index * 0.1 }}
                   whileHover={{ scale: 1.05, y: -5 }}
                 >
-                  <InteractiveCard hoverEffect="scale" className="p-6 text-center">
+                  <InteractiveCard hoverEffect="scale" className="p-6 text-center bg-gradient-to-br from-primary-50 to-white border border-primary-200">
                     <motion.div 
                       className={`w-16 h-16 ${cat.color} rounded-full flex items-center justify-center mx-auto mb-4 text-white text-2xl`}
                       whileHover={{ rotate: 5, scale: 1.1 }}
@@ -195,7 +195,7 @@ const Products: React.FC = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 2.5 }}
           >
-            <InteractiveCard hoverEffect="glow" className="p-8 max-w-4xl mx-auto">
+            <InteractiveCard hoverEffect="glow" className="p-8 max-w-4xl mx-auto bg-gradient-to-br from-secondary-50 to-white border border-secondary-200">
               <motion.h3 
                 className="text-2xl font-bold text-gray-900 mb-6"
                 initial={{ opacity: 0, y: 20 }}
@@ -216,6 +216,7 @@ const Products: React.FC = () => {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: 2.9 + index * 0.1 }}
                     whileHover={{ scale: 1.05 }}
+                    className="bg-gradient-to-br from-primary-50 to-white p-4 rounded-lg border border-primary-200"
                   >
                     <motion.div 
                       className="text-4xl mb-3"
@@ -237,7 +238,7 @@ const Products: React.FC = () => {
       
       {/* Call to Action */}
       <ScrollAnimation animation="fadeIn" delay={0.5}>
-        <ParallaxCallToAction imageIndex={4}>
+        <ParallaxCallToAction imageIndex={2}>
           <div className="container-custom text-center">
             <motion.h3 
               className="text-2xl font-bold text-white mb-6"

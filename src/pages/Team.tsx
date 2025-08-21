@@ -9,11 +9,11 @@ import { seoConfigs } from '@/config/seo'
 
 const Team: React.FC = () => {
   return (
-    <div className="min-h-screen bg-gray-50">
+         <div className="min-h-screen bg-gradient-to-br from-primary-50 via-white to-secondary-50">
       <SEOHead config={seoConfigs.team} />
       <ParallaxHeader 
         title="Our Board & Management" 
-        subtitle="Meet the distinguished professionals behind Agile Insurance Brokers Ltd"
+                 subtitle="Meet the distinguished professionals behind AGILE INSURANCE BROKERS LTD"
         imageIndex={3}
       />
       <div className="container-custom py-20">
@@ -26,7 +26,7 @@ const Team: React.FC = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.4 }}
               >
-                Meet the distinguished professionals behind <span className="text-primary-600">Agile</span> <span className="text-secondary-700">Insurance</span> <span className="text-secondary-900">Brokers Ltd</span>
+                Meet the distinguished professionals behind <span className="text-primary-600">AGILE</span> <span className="text-secondary-700">INSURANCE</span> <span className="text-secondary-900">BROKERS LTD</span>
               </motion.p>
             </div>
           </div>
@@ -71,7 +71,7 @@ const Team: React.FC = () => {
               {
                 name: 'Emmanuel Kobla Obey',
                 role: 'Managing Director',
-                bio: 'Mr. Emmanuel Kobla Obey is an insurance practitioner with experience from Trinity Insurance Brokers and Metrix Brokerage Ltd. He has been in the insurance industry for 10 years and has acquired rich experience in diverse fields. He is the Managing Director of Agile Insurance Brokers Ltd and is assisted by an Operations Manager and two senior officers.',
+                bio: 'Mr. Emmanuel Kobla Obey is an insurance practitioner with experience from Trinity Insurance Brokers and Metrix Brokerage Ltd. He has been in the insurance industry for 10 years and has acquired rich experience in diverse fields. He is the Managing Director of AGILE INSURANCE BROKERS LTD and is assisted by an Operations Manager and two senior officers.',
                 experience: '10 years in the insurance industry',
                 background: 'Experience from Trinity Insurance Brokers and Metrix Brokerage Ltd',
                 education: 'Insurance practitioner with diverse field experience',
@@ -87,7 +87,7 @@ const Team: React.FC = () => {
                 transition={{ duration: 0.5, delay: 0.6 + index * 0.1 }}
                 whileHover={{ scale: 1.02, y: -5 }}
               >
-                <InteractiveCard hoverEffect="lift" className="p-8">
+                <InteractiveCard hoverEffect="lift" className="p-8 bg-gradient-to-br from-primary-50 to-white border border-primary-200">
                   <div className="flex items-start space-x-6">
                     {/* Profile Icon */}
                     <motion.div 
@@ -220,14 +220,14 @@ const Team: React.FC = () => {
                 { value: 'Empathy', icon: '❤️', color: 'bg-red-100 text-red-600' },
                 { value: 'Ethics', icon: '⚖️', color: 'bg-indigo-100 text-indigo-600' }
               ].map((item, index) => (
-                <motion.div 
-                  key={item.value}
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.5, delay: 1.4 + index * 0.1 }}
-                  whileHover={{ scale: 1.1, y: -5 }}
-                  className="bg-white p-4 rounded-lg shadow-md cursor-pointer"
-                >
+                                 <motion.div 
+                   key={item.value}
+                   initial={{ opacity: 0, scale: 0.8 }}
+                   animate={{ opacity: 1, scale: 1 }}
+                   transition={{ duration: 0.5, delay: 1.4 + index * 0.1 }}
+                   whileHover={{ scale: 1.1, y: -5 }}
+                   className="bg-gradient-to-br from-primary-100 to-white p-4 rounded-lg shadow-md cursor-pointer border border-primary-200"
+                 >
                   <motion.div 
                     className={`w-12 h-12 ${item.color} rounded-full flex items-center justify-center mx-auto mb-3 text-xl`}
                     whileHover={{ rotate: 5, scale: 1.1 }}
@@ -250,7 +250,7 @@ const Team: React.FC = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 2.0 }}
           >
-            <InteractiveCard hoverEffect="glow" className="p-8 max-w-4xl mx-auto">
+            <InteractiveCard hoverEffect="glow" className="p-8 max-w-4xl mx-auto bg-gradient-to-br from-primary-50 to-white border border-primary-200">
               <motion.h3 
                 className="text-2xl font-bold text-gray-900 mb-6"
                 initial={{ opacity: 0, y: 20 }}
@@ -271,6 +271,7 @@ const Team: React.FC = () => {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: 2.4 + index * 0.1 }}
                     whileHover={{ scale: 1.05 }}
+                    className="bg-gradient-to-br from-secondary-50 to-white p-4 rounded-lg border border-secondary-200"
                   >
                     <motion.div 
                       className="text-4xl mb-3"
@@ -292,7 +293,7 @@ const Team: React.FC = () => {
       
       {/* Call to Action */}
       <ScrollAnimation animation="fadeIn" delay={0.5}>
-        <ParallaxCallToAction imageIndex={0}>
+        <ParallaxCallToAction imageIndex={3}>
           <div className="container-custom text-center">
             <motion.h3 
               className="text-2xl font-bold text-white mb-6"

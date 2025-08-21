@@ -51,7 +51,7 @@ const SEOHead: React.FC<SEOHeadProps> = ({ config }) => {
     // Basic Meta Tags
     updateMetaTag('description', config.description)
     updateMetaTag('keywords', config.keywords)
-    updateMetaTag('author', 'Agile Insurance Brokers Ltd')
+            updateMetaTag('author', 'AGILE INSURANCE BROKERS LTD')
     updateMetaTag('robots', 'index, follow')
     updateMetaTag('googlebot', 'index, follow')
     
@@ -70,9 +70,9 @@ const SEOHead: React.FC<SEOHeadProps> = ({ config }) => {
     updateMetaTag('og:image', `${config.canonicalUrl}${config.ogImage}`, 'property')
     updateMetaTag('og:image:width', '1200', 'property')
     updateMetaTag('og:image:height', '630', 'property')
-    updateMetaTag('og:site_name', 'Agile Insurance Brokers Ltd', 'property')
+            updateMetaTag('og:site_name', 'AGILE INSURANCE BROKERS LTD', 'property')
     updateMetaTag('og:locale', 'en_GH', 'property')
-    updateMetaTag('og:image:alt', 'Agile Insurance Brokers Ltd - Leading Insurance Brokers in Ghana', 'property')
+            updateMetaTag('og:image:alt', 'AGILE INSURANCE BROKERS LTD - Leading Insurance Brokers in Ghana', 'property')
     
     // Twitter
     updateMetaTag('twitter:card', config.twitterCard)
@@ -94,8 +94,8 @@ const SEOHead: React.FC<SEOHeadProps> = ({ config }) => {
     updateMetaTag('DC.title', config.title)
     updateMetaTag('DC.description', config.description)
     updateMetaTag('DC.subject', 'Insurance Brokers Ghana')
-    updateMetaTag('DC.creator', 'Agile Insurance Brokers Ltd')
-    updateMetaTag('DC.publisher', 'Agile Insurance Brokers Ltd')
+            updateMetaTag('DC.creator', 'AGILE INSURANCE BROKERS LTD')
+        updateMetaTag('DC.publisher', 'AGILE INSURANCE BROKERS LTD')
     updateMetaTag('DC.coverage', 'Ghana')
     updateMetaTag('DC.language', 'en')
     

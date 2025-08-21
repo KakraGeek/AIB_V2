@@ -51,7 +51,7 @@ const InteractiveCard: React.FC<InteractiveCardProps> = ({
 
   return (
     <motion.div
-      className={`bg-white rounded-lg shadow-md transition-colors duration-200 ${className}`}
+      className={`rounded-lg shadow-md transition-colors duration-200 ${className}`}
       whileHover="hover"
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
