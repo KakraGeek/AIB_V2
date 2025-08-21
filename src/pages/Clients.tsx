@@ -9,7 +9,7 @@ import { seoConfigs } from '@/config/seo'
 
 const Clients: React.FC = () => {
   return (
-         <div className="min-h-screen bg-gradient-to-br from-primary-50 via-white to-secondary-50">
+         <div className="min-h-screen bg-gradient-to-br from-primary-300 via-primary-200 to-secondary-300">
       <SEOHead config={seoConfigs.clients} />
       <ParallaxHeader 
         title="Our Partners & Clients" 
@@ -43,7 +43,7 @@ const Clients: React.FC = () => {
             >
               Our Partners
             </motion.h2>
-            <InteractiveCard hoverEffect="lift" className="p-8 bg-gradient-to-br from-primary-50 to-white border border-primary-200">
+            <InteractiveCard hoverEffect="lift" className="p-8 bg-gradient-to-br from-primary-300 to-primary-200 border border-primary-200">
               <motion.p 
                 className="text-lg text-gray-700 mb-8 text-center"
                 initial={{ opacity: 0, y: 20 }}
@@ -86,7 +86,7 @@ const Clients: React.FC = () => {
                 ].map((partner, index) => (
                   <motion.div 
                     key={partner.name}
-                    className="text-center p-6 bg-gradient-to-br from-secondary-50 to-white rounded-lg shadow-md hover:shadow-lg transition-all duration-200 border border-secondary-200"
+                    className="text-center p-6 bg-gradient-to-br from-secondary-300 to-primary-200 rounded-lg shadow-md hover:shadow-lg transition-all duration-200 border border-secondary-200"
                     initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: 1.2 + index * 0.1 }}
@@ -132,7 +132,7 @@ const Clients: React.FC = () => {
             >
               Some Major Clients
             </motion.h2>
-            <InteractiveCard hoverEffect="glow" className="p-8 bg-gradient-to-br from-secondary-50 to-white border border-secondary-200">
+            <InteractiveCard hoverEffect="glow" className="p-8 bg-gradient-to-br from-secondary-300 to-primary-200 border border-secondary-200">
               <motion.p 
                 className="text-lg text-gray-700 mb-8 text-center"
                 initial={{ opacity: 0, y: 20 }}
@@ -191,7 +191,7 @@ const Clients: React.FC = () => {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: 1.0 + index * 0.1 }}
                     whileHover={{ scale: 1.02, y: -5 }}
-                    className="bg-gradient-to-br from-primary-50 to-white p-6 rounded-lg shadow-md hover:shadow-lg transition-all duration-200 border border-primary-200"
+                    className="bg-gradient-to-br from-primary-300 to-primary-200 p-6 rounded-lg shadow-md hover:shadow-lg transition-all duration-200 border border-primary-200"
                   >
                     <motion.h3 
                       className="text-xl font-semibold text-gray-900 mb-4 flex items-center"

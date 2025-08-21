@@ -9,7 +9,7 @@ import { seoConfigs } from '@/config/seo'
 
 const About: React.FC = () => {
   return (
-         <div className="min-h-screen bg-gradient-to-br from-blue-200 via-blue-100 to-indigo-100">
+         <div className="min-h-screen bg-gradient-to-br from-blue-300 via-blue-200 to-indigo-300">
       <SEOHead config={seoConfigs.about} />
       <ParallaxHeader 
         title="About Us" 
@@ -112,7 +112,7 @@ const About: React.FC = () => {
 
         {/* Vision & Mission */}
         <ScrollAnimation animation="fadeIn" delay={0.3}>
-          <div className="py-20 bg-gradient-to-r from-blue-200 via-blue-100 to-indigo-200">
+          <div className="py-20 bg-gradient-to-r from-indigo-300 via-indigo-200 to-purple-300">
             <div className="container-custom">
               <InteractiveCard hoverEffect="glow" className="p-8 bg-gradient-to-br from-indigo-200 to-indigo-100 border-2 border-indigo-300">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -166,7 +166,7 @@ const About: React.FC = () => {
 
         {/* Company Values */}
         <ScrollAnimation animation="fadeIn" delay={0.4}>
-          <div className="py-20 bg-gradient-to-r from-indigo-200 via-indigo-100 to-purple-200">
+          <div className="py-20 bg-gradient-to-r from-blue-300 via-blue-200 to-indigo-300">
             <div className="container-custom">
               <motion.div 
                 className="mt-16 text-center"

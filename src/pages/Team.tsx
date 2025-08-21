@@ -9,7 +9,7 @@ import { seoConfigs } from '@/config/seo'
 
 const Team: React.FC = () => {
   return (
-         <div className="min-h-screen bg-gradient-to-br from-primary-50 via-white to-secondary-50">
+         <div className="min-h-screen bg-gradient-to-br from-primary-300 via-primary-200 to-secondary-300">
       <SEOHead config={seoConfigs.team} />
       <ParallaxHeader 
         title="Our Board & Management" 
@@ -226,7 +226,7 @@ const Team: React.FC = () => {
                    animate={{ opacity: 1, scale: 1 }}
                    transition={{ duration: 0.5, delay: 1.4 + index * 0.1 }}
                    whileHover={{ scale: 1.1, y: -5 }}
-                   className="bg-gradient-to-br from-primary-100 to-white p-4 rounded-lg shadow-md cursor-pointer border border-primary-200"
+                   className="bg-gradient-to-br from-primary-300 to-primary-200 p-4 rounded-lg shadow-md cursor-pointer border border-primary-200"
                  >
                   <motion.div 
                     className={`w-12 h-12 ${item.color} rounded-full flex items-center justify-center mx-auto mb-3 text-xl`}

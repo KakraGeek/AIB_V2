@@ -218,11 +218,11 @@ const Home: React.FC = () => {
 
              {/* Core Values Section */}
        <ScrollAnimation animation="fadeIn" delay={0.3}>
-         <section className="py-20 bg-gray-100">
+         <section className="py-20 bg-gray-700">
           <div className="container-custom">
             <div className="text-center mb-16">
-              <h2 className="text-3xl font-bold text-gray-900 mb-6">Our Core Values</h2>
-              <p className="text-xl text-gray-600">The principles that guide everything we do</p>
+              <h2 className="text-3xl font-bold text-white mb-6">Our Core Values</h2>
+              <p className="text-xl text-gray-200">The principles that guide everything we do</p>
             </div>
             
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 max-w-6xl mx-auto">
@@ -237,8 +237,8 @@ const Home: React.FC = () => {
                 <ScrollAnimation key={value.name} animation="scaleIn" delay={index * 0.1}>
                   <InteractiveCard hoverEffect="lift" className="p-6 text-center bg-gradient-to-br from-indigo-200 to-indigo-100 border-2 border-indigo-300">
                     <div className="text-3xl mb-3">{value.icon}</div>
-                    <h3 className="text-lg font-semibold text-gray-900 mb-2">{value.name}</h3>
-                    <p className="text-sm text-gray-600">{value.description}</p>
+                    <h3 className="text-lg font-semibold text-gray-800 mb-2">{value.name}</h3>
+                    <p className="text-sm text-gray-700">{value.description}</p>
                   </InteractiveCard>
                 </ScrollAnimation>
               ))}

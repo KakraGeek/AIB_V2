@@ -217,7 +217,7 @@ const Contact: React.FC = () => {
   }
 
   return (
-         <div className="min-h-screen bg-gradient-to-br from-primary-50 via-white to-secondary-50">
+         <div className="min-h-screen bg-gradient-to-br from-primary-300 via-primary-200 to-secondary-300">
       <SEOHead config={seoConfigs.contact} />
       <ParallaxHeader 
         title="Contact Us" 
@@ -695,7 +695,7 @@ const Contact: React.FC = () => {
               transition={{ duration: 0.6, delay: 1.0 }}
               whileHover={{ scale: 1.01 }}
             >
-              <InteractiveCard hoverEffect="glow" className="p-4 bg-gradient-to-br from-primary-50 to-white border border-primary-200">
+              <InteractiveCard hoverEffect="glow" className="p-4 bg-gradient-to-br from-primary-300 to-primary-200 border border-primary-200">
                                  <iframe
                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3975.268328435708!2d-0.15675388468037214!3d5.714139315914483!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xfdf9d657dec04e9%3A0xaea9967536950837!2sRomick%20Plaza!5e0!3m2!1sen!2sgh!4v1703179200000!5m2!1sen!2sgh"
                    width="100%"
