@@ -46,9 +46,17 @@ const Layout: React.FC = () => {
         transition={{ duration: 0.6 }}
       >
         <div className="container-custom">
-          <div className="flex items-center justify-between h-16">
-            {/* Logo */}
-            <Link to="/" className="flex items-center space-x-3">
+          <div className="flex items-center h-16">
+            {/* Mobile menu button - LEFT SIDE */}
+            <button
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className="md:hidden p-3 rounded-md text-gray-700 hover:text-primary-600 hover:bg-gray-50 transition-colors"
+            >
+              {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
+
+            {/* Logo - CENTER */}
+            <Link to="/" className="flex items-center space-x-3 flex-1 justify-center md:justify-start">
               <motion.div
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
@@ -63,65 +71,20 @@ const Layout: React.FC = () => {
               <div className="flex flex-col">
                 <div className="flex items-baseline space-x-1">
                   <span className="text-xl font-bold text-primary-600">Agile</span>
-                  <span className="text-xl font-bold text-secondary-700">Insurance</span>
+                  <span className="text-secondary-700">Insurance</span>
                 </div>
                 <span className="text-sm font-medium text-secondary-900">Brokers Ltd</span>
               </div>
             </Link>
 
-            {/* Desktop Navigation */}
-            <nav className="hidden md:flex items-center space-x-8">
-              {navigationItems.map((item) => (
-                <Link
-                  key={item.name}
-                  to={item.path}
-                  className={`px-3 py-2 rounded-md text-sm font-medium transition-colors ${
-                    isActive(item.path)
-                      ? 'text-primary-600 bg-primary-50'
-                      : 'text-gray-700 hover:text-primary-600 hover:bg-gray-50'
-                  }`}
-                >
-                  {item.name}
-                </Link>
-              ))}
-            </nav>
-
-            {/* CTA Button */}
-            <div className="hidden md:block">
-              <Link
-                to="/contact"
-                className="bg-primary-600 hover:bg-primary-700 text-white px-4 py-2 rounded-md text-sm font-medium transition-colors"
-              >
-                Get Quote
-              </Link>
-            </div>
-
-            {/* Mobile menu button */}
-            <button
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="md:hidden p-3 ml-2 rounded-md text-gray-700 hover:text-primary-600 hover:bg-gray-50 transition-colors"
-            >
-              {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-            </button>
-          </div>
-        </div>
-
-        {/* Mobile Navigation */}
-        <AnimatePresence>
-          {isMobileMenuOpen && (
-            <motion.div
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: 'auto' }}
-              exit={{ opacity: 0, height: 0 }}
-              className="md:hidden bg-white border-t border-gray-200"
-            >
-              <div className="container-custom py-6 space-y-3">
+            {/* Desktop Navigation - RIGHT SIDE */}
+            <div className="hidden md:flex items-center space-x-8">
+              <nav className="flex items-center space-x-8">
                 {navigationItems.map((item) => (
                   <Link
                     key={item.name}
                     to={item.path}
-                    onClick={() => setIsMobileMenuOpen(false)}
-                    className={`block px-4 py-3 rounded-md text-base font-medium transition-colors ${
+                    className={`px-3 py-2 rounded-md text-sm font-medium transition-colors ${
                       isActive(item.path)
                         ? 'text-primary-600 bg-primary-50'
                         : 'text-gray-700 hover:text-primary-600 hover:bg-gray-50'
@@ -130,14 +93,63 @@ const Layout: React.FC = () => {
                     {item.name}
                   </Link>
                 ))}
-                <div className="pt-4">
-                  <Link
-                    to="/contact"
-                    onClick={() => setIsMobileMenuOpen(false)}
-                    className="block w-full bg-primary-600 hover:bg-primary-700 text-white px-4 py-2 rounded-md text-base font-medium text-center transition-colors"
-                  >
-                    Get Quote
-                  </Link>
+              </nav>
+
+              {/* CTA Button */}
+              <Link
+                to="/contact"
+                className="bg-primary-600 hover:bg-primary-700 text-white px-4 py-2 rounded-md text-sm font-medium transition-colors"
+              >
+                Get Quote
+              </Link>
+            </div>
+          </div>
+        </div>
+
+        {/* Mobile Navigation - Enhanced */}
+        <AnimatePresence>
+          {isMobileMenuOpen && (
+            <motion.div
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.3, ease: "easeOut" }}
+              className="md:hidden bg-white border-t border-gray-200 shadow-lg"
+            >
+              <div className="container-custom py-8 space-y-4">
+                {/* Navigation Items */}
+                <div className="space-y-2">
+                  {navigationItems.map((item) => (
+                    <Link
+                      key={item.name}
+                      to={item.path}
+                      onClick={() => setIsMobileMenuOpen(false)}
+                      className={`block px-6 py-4 rounded-lg text-lg font-medium transition-all duration-200 ${
+                        isActive(item.path)
+                          ? 'text-primary-600 bg-primary-50 border-l-4 border-primary-600'
+                          : 'text-gray-700 hover:text-primary-600 hover:bg-gray-50 hover:border-l-4 hover:border-gray-300'
+                      }`}
+                    >
+                      {item.name}
+                    </Link>
+                  ))}
+                </div>
+                
+                {/* Divider */}
+                <div className="border-t border-gray-200 my-6"></div>
+                
+                {/* CTA Section */}
+                <div className="space-y-4">
+                  <div className="text-center">
+                    <p className="text-gray-600 text-sm mb-3">Ready to get started?</p>
+                    <Link
+                      to="/contact"
+                      onClick={() => setIsMobileMenuOpen(false)}
+                      className="block w-full bg-primary-600 hover:bg-primary-700 text-white px-6 py-4 rounded-lg text-lg font-semibold text-center transition-all duration-200 shadow-md hover:shadow-lg transform hover:scale-105"
+                    >
+                      Get Free Quote
+                    </Link>
+                  </div>
                 </div>
               </div>
             </motion.div>
