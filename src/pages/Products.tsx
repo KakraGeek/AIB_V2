@@ -270,7 +270,7 @@ const Products: React.FC = () => {
                 Get a Quote
               </motion.a>
               <motion.a
-                href="/about/services"
+                href="/services"
                 className="border-2 border-white text-white hover:bg-white hover:text-primary-600 font-semibold py-3 px-8 rounded-lg transition-colors duration-200 inline-block"
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}

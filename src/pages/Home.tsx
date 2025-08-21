@@ -138,7 +138,7 @@ const Home: React.FC = () => {
                 </motion.a>
                 
                 <motion.a
-                  href="/about"
+                  href="/products"
                   className="border-2 border-white text-white hover:bg-white hover:text-primary-600 font-semibold py-3 px-8 rounded-lg transition-colors duration-200 inline-flex items-center justify-center space-x-2"
                   whileHover={{ scale: 1.05, y: -2 }}
                   whileTap={{ scale: 0.95 }}
@@ -265,7 +265,7 @@ const Home: React.FC = () => {
                 Get Free Quote
               </motion.a>
               <motion.a
-                href="/about"
+                href="/services"
                 className="border-2 border-white text-white hover:bg-white hover:text-primary-600 font-semibold py-3 px-8 rounded-lg transition-colors duration-200 inline-block"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
