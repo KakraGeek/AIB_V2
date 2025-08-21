@@ -1,27 +1,30 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useCallback, useMemo } from 'react'
 import { Link, Outlet, useLocation } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X } from 'lucide-react'
 import ProgressBar from './ProgressBar'
 import FloatingActionButton from './FloatingActionButton'
+import PerformanceMonitor from './PerformanceMonitor'
 
-const Layout: React.FC = () => {
+const Layout: React.FC = React.memo(() => {
   const location = useLocation()
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
 
   const isActive = (path: string) => location.pathname === path
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 10)
-    }
-
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
+  // Memoize scroll handler to prevent recreation on every render
+  const handleScroll = useCallback(() => {
+    setIsScrolled(window.scrollY > 10)
   }, [])
 
-  const navigationItems = [
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [handleScroll])
+
+  // Memoize navigation items to prevent recreation
+  const navigationItems = useMemo(() => [
     { name: 'Home', path: '/' },
     { name: 'About', path: '/about' },
     { name: 'Services', path: '/services' },
@@ -29,46 +32,73 @@ const Layout: React.FC = () => {
     { name: 'Team', path: '/team' },
     { name: 'Partners & Clients', path: '/clients' },
     { name: 'Contact', path: '/contact' }
-  ]
+  ], [])
+
+  // Memoize header animation variants to prevent recreation
+  const headerVariants = useMemo(() => ({
+    initial: { y: -100 },
+    animate: { y: 0 },
+    transition: { duration: 0.6 }
+  }), [])
+
+  // Memoize mobile menu animation variants
+  const mobileMenuVariants = useMemo(() => ({
+    initial: { opacity: 0, y: -20 },
+    animate: { opacity: 1, y: 0 },
+    exit: { opacity: 0, y: -20 },
+    transition: { duration: 0.3, ease: "easeOut" }
+  }), [])
+
+  // Memoize footer animation variants
+  const footerVariants = useMemo(() => ({
+    initial: { opacity: 0, y: 50 },
+    whileInView: { opacity: 1, y: 0 },
+    transition: { duration: 0.6 },
+    viewport: { once: true }
+  }), [])
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col layout-stable">
       <ProgressBar />
       
-             <motion.header 
-         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-           isScrolled 
-             ? 'bg-white/95 backdrop-blur-md shadow-lg' 
-             : 'bg-white'
-         }`}
-        initial={{ y: -100 }}
-        animate={{ y: 0 }}
-        transition={{ duration: 0.6 }}
+      <motion.header 
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 nav-header ${
+          isScrolled 
+            ? 'bg-white/95 backdrop-blur-optimized shadow-lg' 
+            : 'bg-white'
+        }`}
+        variants={headerVariants}
+        initial="initial"
+        animate="animate"
+        // Add will-change to optimize GPU rendering
+        style={{ willChange: 'transform' }}
       >
         <div className="container-custom">
           <div className="flex items-center h-16">
             {/* Mobile menu button - LEFT SIDE */}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="md:hidden p-3 rounded-md text-gray-700 hover:text-primary-600 hover:bg-gray-50 transition-colors"
+              className="md:hidden p-3 rounded-md text-gray-700 hover:text-primary-600 hover:bg-gray-50 transition-colors button-optimized"
             >
               {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
 
             {/* Logo - CENTER */}
-            <Link to="/" className="flex items-center space-x-3 flex-1 justify-center md:justify-start">
+            <Link to="/" className="flex items-center space-x-3 flex-1 justify-center md:justify-start logo-container">
               <motion.div
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="flex items-center justify-center"
+                // Add will-change to optimize GPU rendering
+                style={{ willChange: 'transform' }}
               >
                 <img 
                   src="/images/logo.png" 
                   alt="Agile Insurance Brokers Logo" 
-                  className="h-10 w-auto object-contain"
+                  className="h-10 w-auto object-contain image-optimized"
                 />
               </motion.div>
-              <div className="flex flex-col">
+              <div className="flex flex-col brand-name">
                 <div className="flex items-baseline space-x-1">
                   <span className="text-xl font-bold text-primary-600">Agile</span>
                   <span className="text-secondary-700">Insurance</span>
@@ -84,7 +114,7 @@ const Layout: React.FC = () => {
                   <Link
                     key={item.name}
                     to={item.path}
-                    className={`px-3 py-2 rounded-md text-sm font-medium transition-colors ${
+                    className={`px-3 py-2 rounded-md text-sm font-medium transition-colors hover-optimized ${
                       isActive(item.path)
                         ? 'text-primary-600 bg-primary-50'
                         : 'text-gray-700 hover:text-primary-600 hover:bg-gray-50'
@@ -98,7 +128,7 @@ const Layout: React.FC = () => {
               {/* CTA Button */}
               <Link
                 to="/contact"
-                className="bg-primary-600 hover:bg-primary-700 text-white px-4 py-2 rounded-md text-sm font-medium transition-colors"
+                className="bg-primary-600 hover:bg-primary-700 text-white px-4 py-2 rounded-md text-sm font-medium transition-colors button-optimized hover-optimized"
               >
                 Get Quote
               </Link>
@@ -110,11 +140,13 @@ const Layout: React.FC = () => {
         <AnimatePresence>
           {isMobileMenuOpen && (
             <motion.div
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.3, ease: "easeOut" }}
-              className="md:hidden bg-white border-t border-gray-200 shadow-lg"
+              variants={mobileMenuVariants}
+              initial="initial"
+              animate="animate"
+              exit="exit"
+              className="md:hidden bg-white border-t border-gray-200 shadow-lg mobile-nav"
+              // Add will-change to optimize GPU rendering
+              style={{ willChange: 'transform, opacity' }}
             >
               <div className="container-custom py-8 space-y-4">
                 {/* Navigation Items */}
@@ -124,7 +156,7 @@ const Layout: React.FC = () => {
                       key={item.name}
                       to={item.path}
                       onClick={() => setIsMobileMenuOpen(false)}
-                      className={`block px-6 py-4 rounded-lg text-lg font-medium transition-all duration-200 ${
+                      className={`block px-6 py-4 rounded-lg text-lg font-medium transition-all duration-200 hover-optimized touch-optimized ${
                         isActive(item.path)
                           ? 'text-primary-600 bg-primary-50 border-l-4 border-primary-600'
                           : 'text-gray-700 hover:text-primary-600 hover:bg-gray-50 hover:border-l-4 hover:border-gray-300'
@@ -145,7 +177,7 @@ const Layout: React.FC = () => {
                     <Link
                       to="/contact"
                       onClick={() => setIsMobileMenuOpen(false)}
-                      className="block w-full bg-primary-600 hover:bg-primary-700 text-white px-6 py-4 rounded-lg text-lg font-semibold text-center transition-all duration-200 shadow-md hover:shadow-lg transform hover:scale-105"
+                      className="block w-full bg-primary-600 hover:bg-primary-700 text-white px-6 py-4 rounded-lg text-lg font-semibold text-center transition-all duration-200 shadow-md hover:shadow-lg transform hover:scale-105 button-optimized touch-optimized"
                     >
                       Get Free Quote
                     </Link>
@@ -160,22 +192,23 @@ const Layout: React.FC = () => {
       {/* Spacer for fixed header */}
       <div className="h-16"></div>
 
-      <main className="flex-1">
-        <Outlet />
+      <main className="flex-1 animation-safe">
+        <Outlet key={location.pathname} />
       </main>
 
       <motion.footer 
         className="bg-gray-800 text-white"
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        viewport={{ once: true }}
+        variants={footerVariants}
+        initial="initial"
+        whileInView="whileInView"
+        // Add will-change to optimize GPU rendering
+        style={{ willChange: 'transform, opacity' }}
       >
         <div className="container-custom py-12">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             {/* Company Info */}
             <div className="col-span-1 md:col-span-2">
-                              <h3 className="text-xl font-bold mb-4"><span className="text-primary-600">Agile</span> <span className="text-secondary-700">Insurance</span> <span className="text-secondary-900">Brokers Ltd</span></h3>
+              <h3 className="text-xl font-bold mb-4"><span className="text-primary-600">Agile</span> <span className="text-secondary-700">Insurance</span> <span className="text-secondary-900">Brokers Ltd</span></h3>
               <p className="text-gray-300 mb-4">
                 Providing peace of mind through sound insurance and exceptional service since 2019.
               </p>
@@ -220,8 +253,11 @@ const Layout: React.FC = () => {
       </motion.footer>
 
       <FloatingActionButton />
+      <PerformanceMonitor />
     </div>
   )
-}
+})
+
+Layout.displayName = 'Layout'
 
 export default Layout

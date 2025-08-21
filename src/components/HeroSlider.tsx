@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react'
+import React, { useState, useEffect, useCallback, useMemo } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { ChevronLeft, ChevronRight, Play, Pause } from 'lucide-react'
 import { Link } from 'react-router-dom'
@@ -10,7 +10,7 @@ interface HeroSliderProps {
   className?: string
 }
 
-const HeroSlider: React.FC<HeroSliderProps> = ({ 
+const HeroSlider: React.FC<HeroSliderProps> = React.memo(({ 
   interval = 5000, 
   className 
 }) => {
@@ -18,7 +18,39 @@ const HeroSlider: React.FC<HeroSliderProps> = ({
   const [isPlaying, setIsPlaying] = useState(true)
   const [isPaused, setIsPaused] = useState(false)
 
-  // Autoplay functionality
+  // Memoize slide variants to prevent recreation on every render
+  const slideVariants = useMemo(() => ({
+    enter: (direction: number) => ({
+      x: direction > 0 ? 1000 : -1000,
+      opacity: 0
+    }),
+    center: {
+      zIndex: 1,
+      x: 0,
+      opacity: 1
+    },
+    exit: (direction: number) => ({
+      zIndex: 0,
+      x: direction < 0 ? 1000 : -1000,
+      opacity: 0
+    })
+  }), [])
+
+  // Memoize content variants
+  const contentVariants = useMemo(() => ({
+    hidden: { opacity: 0, y: 20 },
+    visible: (i: number) => ({
+      opacity: 1,
+      y: 0,
+      transition: {
+        delay: i * 0.1,
+        duration: 0.6,
+        ease: "easeOut" as const
+      }
+    })
+  }), [])
+
+  // Optimize autoplay to prevent unnecessary re-renders
   useEffect(() => {
     if (!isPlaying || isPaused) return
 
@@ -103,44 +135,16 @@ const HeroSlider: React.FC<HeroSliderProps> = ({
     setTouchEnd(null)
   }
 
-  // Motion variants
-  const slideVariants = {
-    enter: (direction: number) => ({
-      x: direction > 0 ? 1000 : -1000,
-      opacity: 0
-    }),
-    center: {
-      zIndex: 1,
-      x: 0,
-      opacity: 1
-    },
-    exit: (direction: number) => ({
-      zIndex: 0,
-      x: direction < 0 ? 1000 : -1000,
-      opacity: 0
-    })
-  }
-
-  const contentVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: (i: number) => ({
-      opacity: 1,
-      y: 0,
-      transition: {
-        delay: i * 0.1,
-        duration: 0.6,
-        ease: "easeOut" as const
-      }
-    })
-  }
-
   // Check for reduced motion preference
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+
+  // Memoize the current slide data to prevent unnecessary re-renders
+  const currentSlideData = useMemo(() => heroSlides[currentSlide], [currentSlide])
 
   return (
     <div 
       className={cn(
-        "relative w-full h-screen",
+        "relative w-full h-screen hero-slider",
         className
       )}
       onMouseEnter={handlePause}
@@ -152,7 +156,7 @@ const HeroSlider: React.FC<HeroSliderProps> = ({
       onTouchEnd={handleTouchEnd}
     >
       {/* Slides */}
-      <AnimatePresence initial={false} custom={currentSlide}>
+      <AnimatePresence initial={false} custom={currentSlide} mode="wait">
         <motion.div
           key={currentSlide}
           custom={currentSlide}
@@ -164,13 +168,15 @@ const HeroSlider: React.FC<HeroSliderProps> = ({
             x: { type: "spring", stiffness: 300, damping: 30 },
             opacity: { duration: 0.6 }
           }}
-          className="absolute inset-0 w-full h-full"
+          className="absolute inset-0 w-full h-full motion-div"
+          // Add will-change to optimize GPU rendering
+          style={{ willChange: 'transform, opacity' }}
         >
           {/* Background Image */}
           <div 
-            className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+            className="absolute inset-0 bg-cover bg-center bg-no-repeat image-optimized"
             style={{
-              backgroundImage: `url(${heroSlides[currentSlide].image})`
+              backgroundImage: `url(${currentSlideData.image})`
             }}
           />
           
@@ -178,7 +184,7 @@ const HeroSlider: React.FC<HeroSliderProps> = ({
           <div 
             className="absolute inset-0 bg-black"
             style={{ 
-              opacity: heroSlides[currentSlide].overlayOpacity || 0.3 
+              opacity: currentSlideData.overlayOpacity || 0.3
             }}
           />
 
@@ -190,10 +196,12 @@ const HeroSlider: React.FC<HeroSliderProps> = ({
                 variants={prefersReducedMotion ? {} : contentVariants}
                 initial="hidden"
                 animate="visible"
-                className="text-5xl md:text-6xl font-bold mb-6"
+                className="text-5xl md:text-6xl font-bold mb-6 text-optimized"
                 aria-live="polite"
+                // Add will-change to optimize GPU rendering
+                style={{ willChange: 'transform, opacity' }}
               >
-                {heroSlides[currentSlide].title}
+                {currentSlideData.title}
               </motion.h1>
               
               <motion.p
@@ -201,9 +209,10 @@ const HeroSlider: React.FC<HeroSliderProps> = ({
                 variants={prefersReducedMotion ? {} : contentVariants}
                 initial="hidden"
                 animate="visible"
-                className="text-xl md:text-2xl mb-8 text-gray-200"
+                className="text-xl md:text-2xl mb-8 text-gray-200 text-optimized"
+                style={{ willChange: 'transform, opacity' }}
               >
-                {heroSlides[currentSlide].subtitle}
+                {currentSlideData.subtitle}
               </motion.p>
               
               <motion.div
@@ -211,12 +220,13 @@ const HeroSlider: React.FC<HeroSliderProps> = ({
                 variants={prefersReducedMotion ? {} : contentVariants}
                 initial="hidden"
                 animate="visible"
+                style={{ willChange: 'transform, opacity' }}
               >
                 <Link
-                  to={heroSlides[currentSlide].ctaHref}
-                  className="inline-block bg-primary-600 hover:bg-primary-700 text-white font-semibold py-4 px-8 rounded-lg text-lg transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-primary-400 focus:ring-offset-2"
+                  to={currentSlideData.ctaHref}
+                  className="inline-block bg-primary-600 hover:bg-primary-700 text-white font-semibold py-4 px-8 rounded-lg text-lg transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-primary-400 focus:ring-offset-2 button-optimized hover-optimized touch-optimized"
                 >
-                  {heroSlides[currentSlide].ctaLabel}
+                  {currentSlideData.ctaLabel}
                 </Link>
               </motion.div>
             </div>
@@ -230,7 +240,7 @@ const HeroSlider: React.FC<HeroSliderProps> = ({
           {/* Play/Pause Button */}
           <button
             onClick={() => setIsPlaying(!isPlaying)}
-            className="p-3 bg-white/20 hover:bg-white/30 rounded-full text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-white/50"
+            className="p-3 bg-white/20 hover:bg-white/30 rounded-full text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-white/50 button-optimized touch-optimized"
             aria-label={isPlaying ? "Pause slideshow" : "Play slideshow"}
           >
             {isPlaying ? <Pause size={20} /> : <Play size={20} />}
@@ -239,7 +249,7 @@ const HeroSlider: React.FC<HeroSliderProps> = ({
           {/* Previous Button */}
           <button
             onClick={goToPrevious}
-            className="p-3 bg-white/20 hover:bg-white/30 rounded-full text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-white/50"
+            className="p-3 bg-white/20 hover:bg-white/30 rounded-full text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-white/50 button-optimized touch-optimized"
             aria-label="Previous slide"
           >
             <ChevronLeft size={20} />
@@ -252,7 +262,7 @@ const HeroSlider: React.FC<HeroSliderProps> = ({
                 key={index}
                 onClick={() => goToSlide(index)}
                 className={cn(
-                  "w-3 h-3 rounded-full transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-white/50",
+                  "w-3 h-3 rounded-full transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-white/50 button-optimized touch-optimized",
                   index === currentSlide 
                     ? "bg-white scale-125" 
                     : "bg-white/50 hover:bg-white/75"
@@ -266,7 +276,7 @@ const HeroSlider: React.FC<HeroSliderProps> = ({
           {/* Next Button */}
           <button
             onClick={goToNext}
-            className="p-3 bg-white/20 hover:bg-white/30 rounded-full text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-white/50"
+            className="p-3 bg-white/20 hover:bg-white/30 rounded-full text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-white/50 button-optimized touch-optimized"
             aria-label="Next slide"
           >
             <ChevronRight size={20} />
@@ -282,6 +292,8 @@ const HeroSlider: React.FC<HeroSliderProps> = ({
       </div>
     </div>
   )
-}
+})
+
+HeroSlider.displayName = 'HeroSlider'
 
 export default HeroSlider
