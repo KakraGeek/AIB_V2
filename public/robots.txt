@@ -2,7 +2,7 @@ User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://www.agilebrokersgh.com/sitemap.xml
+Sitemap: https://agile-insurance-v20.vercel.app/sitemap.xml
 
 # Disallow admin or private areas (if any exist in the future)
 # Disallow: /admin/

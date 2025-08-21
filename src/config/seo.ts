@@ -11,7 +11,7 @@ export interface SEOConfig {
 
 export const siteConfig = {
   name: 'Agile Insurance Brokers Ltd',
-  url: 'https://www.agilebrokersgh.com',
+  url: 'https://agile-insurance-v20.vercel.app',
   description: 'Leading insurance brokers in Ghana offering comprehensive insurance solutions including life, health, motor, business, and property insurance. Licensed and regulated by NIC.',
   logo: '/images/logo.png',
   ogImage: '/images/logo.png',
@@ -26,7 +26,7 @@ export const seoConfigs: Record<string, SEOConfig> = {
     title: 'Home | Agile Insurance',
     description: 'Agile Insurance Brokers Ghana - Your trusted insurance broker in Accra. Compare insurance quotes, get expert advice on life, health, motor, business & property insurance. Licensed by NIC.',
     keywords: 'insurance brokers in Ghana, Ghana insurance broker, insurance brokerage Ghana, Agile Insurance Brokers Ghana, licensed insurance broker Ghana, best insurance brokers in Accra, top insurance brokers Ghana',
-    canonicalUrl: 'https://www.agilebrokersgh.com',
+    canonicalUrl: 'https://agile-insurance-v20.vercel.app',
     ogImage: '/images/logo.png',
     ogType: 'website',
     twitterCard: 'summary_large_image',
@@ -35,8 +35,8 @@ export const seoConfigs: Record<string, SEOConfig> = {
       '@type': 'InsuranceAgency',
       name: 'Agile Insurance Brokers Ltd',
       description: 'Leading insurance brokers in Ghana offering comprehensive insurance solutions',
-      url: 'https://www.agilebrokersgh.com',
-      logo: 'https://www.agilebrokersgh.com/images/logo.png',
+      url: 'https://agile-insurance-v20.vercel.app',
+      logo: 'https://agile-insurance-v20.vercel.app/images/logo.png',
       telephone: '+233244104087',
       email: 'info@agilebrokersgh.com',
       address: {
@@ -101,7 +101,7 @@ export const seoConfigs: Record<string, SEOConfig> = {
     title: 'About | Agile Insurance',
     description: 'Learn about Agile Insurance Brokers Ghana - a licensed and regulated insurance broker in Accra. Established 2019, serving Ghana with professional insurance solutions.',
     keywords: 'Agile Insurance Brokers Ghana, licensed insurance broker Ghana, NIC licensed insurance broker Ghana, Ghana insurance commission broker, regulated insurance broker Ghana',
-    canonicalUrl: 'https://www.agilebrokersgh.com/about',
+    canonicalUrl: 'https://agile-insurance-v20.vercel.app/about',
     ogImage: '/images/logo.png',
     ogType: 'website',
     twitterCard: 'summary_large_image',
@@ -110,8 +110,8 @@ export const seoConfigs: Record<string, SEOConfig> = {
       '@type': 'Organization',
       name: 'Agile Insurance Brokers Ltd',
       description: 'Licensed insurance broker in Ghana',
-      url: 'https://www.agilebrokersgh.com',
-      logo: 'https://www.agilebrokersgh.com/images/logo.png',
+      url: 'https://agile-insurance-v20.vercel.app',
+      logo: 'https://agile-insurance-v20.vercel.app/images/logo.png',
       foundingDate: '2019',
       address: {
         '@type': 'PostalAddress',
@@ -125,7 +125,7 @@ export const seoConfigs: Record<string, SEOConfig> = {
     title: 'Services | Agile Insurance',
     description: 'Comprehensive insurance services in Ghana: life insurance, health insurance, motor insurance, business insurance, property insurance. Get expert advice from Agile Insurance Brokers.',
     keywords: 'life insurance broker Ghana, health insurance brokers Ghana, auto insurance brokers Ghana, business insurance broker Ghana, property insurance brokers Ghana, group insurance brokers Ghana',
-    canonicalUrl: 'https://www.agilebrokersgh.com/services',
+    canonicalUrl: 'https://agile-insurance-v20.vercel.app/services',
     ogImage: '/images/logo.png',
     ogType: 'website',
     twitterCard: 'summary_large_image',
@@ -145,7 +145,7 @@ export const seoConfigs: Record<string, SEOConfig> = {
     title: 'Products | Agile Insurance',
     description: 'Wide range of insurance products in Ghana: motor insurance, health insurance, life insurance, business insurance, property insurance. Compare quotes with Agile Insurance Brokers.',
     keywords: 'life assurance Ghana, home insurance Ghana, travel insurance Ghana, motor insurance Ghana, group life insurance Ghana, health cover Ghana, business protection insurance Ghana',
-    canonicalUrl: 'https://www.agilebrokersgh.com/products',
+    canonicalUrl: 'https://agile-insurance-v20.vercel.app/products',
     ogImage: '/images/logo.png',
     ogType: 'website',
     twitterCard: 'summary_large_image',
@@ -164,7 +164,7 @@ export const seoConfigs: Record<string, SEOConfig> = {
     title: 'Team | Agile Insurance',
     description: 'Meet our professional insurance broker team in Ghana. Experienced brokers providing expert insurance advice and solutions across Ghana.',
     keywords: 'insurance broker team Ghana, professional insurance brokers Ghana, experienced insurance brokers Ghana, trusted Ghana insurance agent',
-    canonicalUrl: 'https://www.agilebrokersgh.com/team',
+    canonicalUrl: 'https://agile-insurance-v20.vercel.app/team',
     ogImage: '/images/logo.png',
     ogType: 'website',
     twitterCard: 'summary_large_image',
@@ -179,7 +179,7 @@ export const seoConfigs: Record<string, SEOConfig> = {
     title: 'Partners & Clients | Agile Insurance',
     description: 'Leading organizations across Ghana trust Agile Insurance Brokers for their insurance needs. View our client portfolio and partnerships.',
     keywords: 'insurance broker clients Ghana, organizations using Agile Insurance Brokers, trusted insurance broker Ghana, leading insurance broker Ghana',
-    canonicalUrl: 'https://www.agilebrokersgh.com/clients',
+    canonicalUrl: 'https://agile-insurance-v20.vercel.app/clients',
     ogImage: '/images/logo.png',
     ogType: 'website',
     twitterCard: 'summary_large_image',
@@ -194,7 +194,7 @@ export const seoConfigs: Record<string, SEOConfig> = {
     title: 'Contact | Agile Insurance',
     description: 'Contact Agile Insurance Brokers Ghana for insurance quotes, expert advice, and personalized insurance solutions. Located in Accra, serving all of Ghana.',
     keywords: 'contact Agile Insurance Brokers Ghana, insurance broker contact Ghana, get insurance quotes Ghana, insurance advice Ghana, Agile Insurance Brokers Accra',
-    canonicalUrl: 'https://www.agilebrokersgh.com/contact',
+    canonicalUrl: 'https://agile-insurance-v20.vercel.app/contact',
     ogImage: '/images/logo.png',
     ogType: 'website',
     twitterCard: 'summary_large_image',
@@ -209,7 +209,7 @@ export const seoConfigs: Record<string, SEOConfig> = {
     title: 'Page Not Found | Agile Insurance',
     description: 'The page you are looking for could not be found. Return to Agile Insurance Brokers Ghana homepage for insurance solutions.',
     keywords: 'page not found, 404 error, Agile Insurance Brokers Ghana',
-    canonicalUrl: 'https://www.agilebrokersgh.com/404',
+    canonicalUrl: 'https://agile-insurance-v20.vercel.app/404',
     ogImage: '/images/logo.png',
     ogType: 'website',
     twitterCard: 'summary_large_image',
@@ -263,10 +263,10 @@ export const generateMetaTags = (config: SEOConfig) => {
         property: 'og:url',
         content: config.canonicalUrl
       },
-      {
-        property: 'og:image',
-        content: `https://www.agilebrokersgh.com${config.ogImage}`
-      },
+             {
+         property: 'og:image',
+         content: `https://agile-insurance-v20.vercel.app${config.ogImage}`
+       },
       {
         property: 'og:image:width',
         content: '1200'
@@ -296,10 +296,10 @@ export const generateMetaTags = (config: SEOConfig) => {
         name: 'twitter:description',
         content: config.description
       },
-      {
-        name: 'twitter:image',
-        content: `https://www.agilebrokersgh.com${config.ogImage}`
-      },
+             {
+         name: 'twitter:image',
+         content: `https://agile-insurance-v20.vercel.app${config.ogImage}`
+       },
       // WhatsApp specific
       {
         property: 'og:image:alt',
