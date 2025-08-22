@@ -80,6 +80,18 @@ export default {
           800: '#991b1b',
           900: '#7f1d1d',
         },
+        // Custom gradient colors for the design
+        blue: {
+          150: '#dbeafe',
+          175: '#bfdbfe',
+        },
+        indigo: {
+          150: '#e0e7ff',
+          175: '#c7d2fe',
+        },
+        purple: {
+          175: '#ddd6fe',
+        },
       },
       fontFamily: {
         sans: ['Inter', 'system-ui', 'sans-serif'],

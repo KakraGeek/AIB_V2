@@ -9,20 +9,20 @@ import { seoConfigs } from '@/config/seo'
 
 const Home: React.FC = () => {
   return (
-         <div className="min-h-screen bg-gradient-to-br from-blue-175 via-blue-150 to-indigo-175">
+    <div className="min-h-screen bg-gradient-to-br from-blue-175 via-blue-150 to-indigo-175">
       <SEOHead config={seoConfigs.home} />
       <HeroSlider />
       
-             {/* Welcome Section */}
-       <ScrollAnimation animation="fadeIn" delay={0.2}>
-         <section className="py-20 bg-white">
+      {/* Welcome Section */}
+      <ScrollAnimation animation="fadeIn" delay={0.2}>
+        <section className="py-20 bg-white">
           <div className="container-custom">
             <div className="text-center max-w-4xl mx-auto">
-                             <h2 className="text-3xl font-bold text-gray-900 mb-6">
-                 Welcome to <span className="uppercase"><span className="text-primary-600">AGILE</span> <span className="text-secondary-700">INSURANCE</span> <span className="text-secondary-900">BROKERS LTD</span></span>
-               </h2>
+              <h2 className="text-3xl font-bold text-gray-900 mb-6">
+                Welcome to <span className="uppercase"><span className="text-primary-600">AGILE</span> <span className="text-secondary-700">INSURANCE</span> <span className="text-secondary-900">BROKERS LTD</span></span>
+              </h2>
               <p className="text-xl text-gray-700 mb-8 leading-relaxed">
-                                 <span className="text-primary-600">AGILE</span> <span className="text-secondary-700">INSURANCE</span> <span className="text-secondary-900">BROKERS LIMITED</span> was incorporated in 2019 under the Companies Act, 2019 (Act 992).
+                <span className="text-primary-600">AGILE</span> <span className="text-secondary-700">INSURANCE</span> <span className="text-secondary-900">BROKERS LIMITED</span> was incorporated in 2019 under the Companies Act, 2019 (Act 992).
                 The Company aims to be a leader in providing high quality and competitively priced insurance services nationwide.
               </p>
               <p className="text-lg text-gray-600 mb-8 leading-relaxed">
@@ -34,7 +34,7 @@ const Home: React.FC = () => {
         </section>
       </ScrollAnimation>
 
-             {/* Vision & Mission Section */}
+      {/* Vision & Mission Section */}
       <ScrollAnimation animation="fadeIn" delay={0.2}>
         <section className="py-20 bg-gradient-to-br from-blue-175 via-blue-150 to-indigo-175">
           <div className="container-custom">
@@ -156,71 +156,71 @@ const Home: React.FC = () => {
         </section>
       </ScrollAnimation>
 
-              {/* Company Highlights */}
-         <ScrollAnimation animation="fadeIn" delay={0.2}>
-           <section className="py-20 bg-gradient-to-br from-indigo-175 via-indigo-150 to-purple-175">
-             <div className="container-custom">
-               <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-                 {[
-                   {
-                     title: 'Authorized Broker',
-                     description: 'Authorized to transact business with all registered insurance companies in Ghana.',
-                     icon: (
-                       <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-                       </svg>
-                     ),
-                     color: 'bg-blue-100 text-blue-600'
-                   },
-                   {
-                     title: 'Professional Service',
-                     description: 'Tailored, affordable insurance solutions backed by professional advice and support.',
-                     icon: (
-                       <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
-                       </svg>
-                     ),
-                     color: 'bg-red-100 text-red-600'
-                   },
-                   {
-                     title: 'Client Focused',
-                     description: 'Committed to protecting businesses, people, and assets across Ghana.',
-                     icon: (
-                       <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-                       </svg>
-                     ),
-                     color: 'bg-blue-100 text-blue-600'
-                   }
-                 ].map((highlight, index) => (
-                   <motion.div 
-                     key={highlight.title}
-                     initial={{ opacity: 0, y: 30 }}
-                     animate={{ opacity: 1, y: 0 }}
-                     transition={{ duration: 0.5, delay: 1.0 + index * 0.1 }}
-                     whileHover={{ scale: 1.05, y: -5 }}
-                   >
-                     <InteractiveCard hoverEffect="lift" className="p-8 text-center bg-gradient-to-br from-blue-175 to-blue-150 border-2 border-blue-300">
-                       <motion.div 
-                         className={`w-16 h-16 ${highlight.color} rounded-full flex items-center justify-center mx-auto mb-4 text-2xl`}
-                         whileHover={{ rotate: 5, scale: 1.1 }}
-                         transition={{ duration: 0.2 }}
-                       >
-                         {highlight.icon}
-                       </motion.div>
-                       <h3 className="text-xl font-semibold mb-2">{highlight.title}</h3>
-                       <p className="text-gray-600">{highlight.description}</p>
-                     </InteractiveCard>
-                   </motion.div>
-                 ))}
-               </div>
-             </div>
-           </section>
-         </ScrollAnimation>
+      {/* Company Highlights */}
+      <ScrollAnimation animation="fadeIn" delay={0.2}>
+        <section className="py-20 bg-gradient-to-br from-indigo-175 via-indigo-150 to-purple-175">
+          <div className="container-custom">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+              {[
+                {
+                  title: 'Authorized Broker',
+                  description: 'Authorized to transact business with all registered insurance companies in Ghana.',
+                  icon: (
+                    <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                    </svg>
+                  ),
+                  color: 'bg-blue-100 text-blue-600'
+                },
+                {
+                  title: 'Professional Service',
+                  description: 'Tailored, affordable insurance solutions backed by professional advice and support.',
+                  icon: (
+                    <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+                    </svg>
+                  ),
+                  color: 'bg-red-100 text-red-600'
+                },
+                {
+                  title: 'Client Focused',
+                  description: 'Committed to protecting businesses, people, and assets across Ghana.',
+                  icon: (
+                    <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                    </svg>
+                  ),
+                  color: 'bg-blue-100 text-blue-600'
+                }
+              ].map((highlight, index) => (
+                <motion.div 
+                  key={highlight.title}
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 1.0 + index * 0.1 }}
+                  whileHover={{ scale: 1.05, y: -5 }}
+                >
+                  <InteractiveCard hoverEffect="lift" className="p-8 text-center bg-gradient-to-br from-blue-175 to-blue-150 border-2 border-blue-300">
+                    <motion.div 
+                      className={`w-16 h-16 ${highlight.color} rounded-full flex items-center justify-center mx-auto mb-4 text-2xl`}
+                      whileHover={{ rotate: 5, scale: 1.1 }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      {highlight.icon}
+                    </motion.div>
+                    <h3 className="text-xl font-semibold mb-2">{highlight.title}</h3>
+                    <p className="text-gray-600">{highlight.description}</p>
+                  </InteractiveCard>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+      </ScrollAnimation>
 
-             {/* Core Values Section */}
-       <ScrollAnimation animation="fadeIn" delay={0.3}>
-         <section className="py-20 bg-gray-700">
+      {/* Core Values Section */}
+      <ScrollAnimation animation="fadeIn" delay={0.3}>
+        <section className="py-20 bg-gray-700">
           <div className="container-custom">
             <div className="text-center mb-16">
               <h2 className="text-3xl font-bold text-white mb-6">Our Core Values</h2>
@@ -249,14 +249,14 @@ const Home: React.FC = () => {
         </section>
       </ScrollAnimation>
 
-             {/* Why Choose Us Section */}
-       <section className="py-20 bg-gradient-to-br from-indigo-200 via-indigo-100 to-purple-200">
+      {/* Why Choose Us Section */}
+      <section className="py-20 bg-gradient-to-br from-indigo-200 via-indigo-100 to-purple-200">
         <div className="container-custom">
           <ScrollAnimation animation="fadeIn" delay={0.4}>
             <div className="text-center mb-16">
-                             <h2 className="text-3xl font-bold text-gray-900 mb-6">
-                 Why Choose <span className="text-primary-600">AGILE</span> <span className="text-secondary-700">INSURANCE</span>?
-               </h2>
+              <h2 className="text-3xl font-bold text-gray-900 mb-6">
+                Why Choose <span className="text-primary-600">AGILE</span> <span className="text-secondary-700">INSURANCE</span>?
+              </h2>
               <p className="text-xl text-gray-600 mb-12">
                 We provide comprehensive insurance solutions with personalized service
               </p>

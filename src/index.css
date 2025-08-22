@@ -30,7 +30,23 @@ header {
   transform: translateZ(0);
   backface-visibility: hidden;
   perspective: 1000px;
+  /* White background to cover parent gradient */
+  background: white;
+  /* Remove any unwanted borders or outlines */
+  outline: none;
+  border: none;
 }
+
+/* Ensure slider content works properly */
+.hero-slider .motion-div {
+  background: transparent;
+}
+
+.hero-slider .image-optimized {
+  background-color: transparent;
+}
+
+
 
 /* Optimize mobile navigation */
 .mobile-nav {
@@ -82,10 +98,21 @@ header {
 @media (max-width: 768px) {
   .hero-slider {
     will-change: auto;
+    /* White background on mobile */
+    background: white;
+    /* Ensure background covers all edges */
+    background-clip: border-box;
+    background-origin: border-box;
+    /* Reduce height to match image height */
+    height: auto !important;
+    min-height: 40vh !important;
   }
   
   .hero-slider .motion-div {
     will-change: auto;
+    background: transparent;
+    /* Ensure motion div matches container height */
+    height: 100% !important;
   }
   
   /* Mobile: Show full images without cropping */
@@ -93,6 +120,19 @@ header {
     background-size: contain !important;
     background-position: center !important;
     background-repeat: no-repeat !important;
+    background-color: transparent;
+    /* Ensure image covers the reduced height */
+    height: 100% !important;
+  }
+  
+  /* Ensure controls are properly positioned on mobile */
+  .hero-slider .absolute.bottom-0 {
+    bottom: 0 !important;
+  }
+  
+  /* Ensure counter is properly positioned on mobile */
+  .hero-slider .absolute.top-0 {
+    top: 0 !important;
   }
 }
 
